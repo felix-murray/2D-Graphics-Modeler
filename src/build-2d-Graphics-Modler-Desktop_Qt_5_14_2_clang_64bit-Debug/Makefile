@@ -53,9 +53,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../2d-Graphics-Modler/main.cpp \
-		../2d-Graphics-Modler/mainwindow.cpp moc_mainwindow.cpp
+		../2d-Graphics-Modler/mainwindow.cpp \
+		../2d-Graphics-Modler/shape.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		shape.o \
 		moc_mainwindow.o
 DIST          = ../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/qdevice.pri \
@@ -237,6 +239,7 @@ DIST          = ../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_post.prf \
+		../2d-Graphics-Modler/.qmake.stash \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/toolchain.prf \
@@ -265,8 +268,10 @@ DIST          = ../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/exceptions.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/lex.prf \
-		../2d-Graphics-Modler/2d-Graphics-Modler.pro ../2d-Graphics-Modler/mainwindow.h ../2d-Graphics-Modler/main.cpp \
-		../2d-Graphics-Modler/mainwindow.cpp
+		../2d-Graphics-Modler/2d-Graphics-Modler.pro ../2d-Graphics-Modler/mainwindow.h \
+		../2d-Graphics-Modler/shape.h ../2d-Graphics-Modler/main.cpp \
+		../2d-Graphics-Modler/mainwindow.cpp \
+		../2d-Graphics-Modler/shape.cpp
 QMAKE_TARGET  = 2d-Graphics-Modler
 DESTDIR       = 
 TARGET        = 2d-Graphics-Modler.app/Contents/MacOS/2d-Graphics-Modler
@@ -469,6 +474,7 @@ Makefile: ../2d-Graphics-Modler/2d-Graphics-Modler.pro ../../../../Qt/5.14.2/cla
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/toolchain.prf \
@@ -682,6 +688,7 @@ Makefile: ../2d-Graphics-Modler/2d-Graphics-Modler.pro ../../../../Qt/5.14.2/cla
 ../../../../Qt/5.14.2/clang_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.14.2/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.14.2/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.14.2/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../../Qt/5.14.2/clang_64/mkspecs/features/toolchain.prf:
@@ -744,8 +751,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.14.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../2d-Graphics-Modler/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../2d-Graphics-Modler/main.cpp ../2d-Graphics-Modler/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../2d-Graphics-Modler/mainwindow.h ../2d-Graphics-Modler/shape.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../2d-Graphics-Modler/main.cpp ../2d-Graphics-Modler/mainwindow.cpp ../2d-Graphics-Modler/shape.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../2d-Graphics-Modler/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents 2d-Graphics-Modler_fr_FR.ts $(DISTDIR)/
 
@@ -757,6 +764,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r 2d-Graphics-Modler.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -826,6 +834,15 @@ mainwindow.o: ../2d-Graphics-Modler/mainwindow.cpp ../2d-Graphics-Modler/mainwin
 		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../2d-Graphics-Modler/mainwindow.cpp
+
+shape.o: ../2d-Graphics-Modler/shape.cpp ../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shape.o ../2d-Graphics-Modler/shape.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

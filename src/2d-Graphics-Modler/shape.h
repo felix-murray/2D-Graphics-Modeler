@@ -31,10 +31,10 @@ public:
     void setDefaultStyle();
 
     //Accessor Functions
-    Shapes     getShape() const {return shape;}
+    Shapes getShape() const {return shape;}
     const QBrush &getBrush() const {return brush;}
-    const QPen   &getPen()   const {return pen;}
-    int           getID()    const {return id;}
+    const QPen &getPen() const {return pen;}
+    int getID() const {return id;}
 
     //Virtual Functions
     virtual ~Shape(){}
@@ -42,6 +42,7 @@ public:
     virtual void draw(QPaintDevice *device) = 0;
     virtual double perimeter() = 0;
     virtual double area() = 0;
+
  protected:
      QPainter &getQPainter();
 
