@@ -6,88 +6,88 @@
 template <class T>
 class Shape_Vector
 {
-    private:
-        int size_v;             //size of elements currently in the array
-        T* elem;                //pointer to elements
-        int space;              //size + free_space
-                                //in other words, max size of array
-    public:
-        /*********  CONSTRUCTORS  **********/
-        Shape_Vector();                          //default constructor
-        explicit Shape_Vector(int s);            //alternate constructor
-        Shape_Vector(const Shape_Vector&);             //copy constructor
-        Shape_Vector& operator=(const Shape_Vector&);  //copy assignment
+private:
+    int size_v;             //size of elements currently in the array
+    T* elem;                //pointer to elements
+    int space;              //size + free_space
+                            //in other words, max size of array
+public:
+    /*********  CONSTRUCTORS  **********/
+    Shape_Vector();                          //default constructor
+    explicit Shape_Vector(int s);            //alternate constructor
+    Shape_Vector(const Shape_Vector&);             //copy constructor
+    Shape_Vector& operator=(const Shape_Vector&);  //copy assignment
 
-        Shape_Vector(const Shape_Vector&&);            //move constructor
-        Shape_Vector& operator=(const Shape_Vector&&); //move assignment
+    Shape_Vector(const Shape_Vector&&);            //move constructor
+    Shape_Vector& operator=(const Shape_Vector&&); //move assignment
 
-        ~Shape_Vector();                         //destructor
+    ~Shape_Vector();                         //destructor
 
-        /*********  ACCESS  **********/
-        //Overloads the [] operator to allow indexing on the Shape_Vector.
-        //post-condition: return elem[n];
-        T& operator[] (int n);
+    /*********  ACCESS  **********/
+    //Overloads the [] operator to allow indexing on the Shape_Vector.
+    //post-condition: return elem[n];
+    T& operator[] (int n);
 //      const T& operator[] (int n);
 
-        /*********  Shape_Vector FUNCTION  **********/
+    /*********  Shape_Vector FUNCTION  **********/
 
-        //Returns the number of elements that are currently in the list.
-        //post-condition: return size_v;
-        int size() const;
+    //Returns the number of elements that are currently in the list.
+    //post-condition: return size_v;
+    int size() const;
 
-        //Returns the max number of elements that a can go into the Shape_Vector.
-        //post-condition: return space;
-        int capacity() const;
+    //Returns the max number of elements that a can go into the Shape_Vector.
+    //post-condition: return space;
+    int capacity() const;
 
-        //Changes the max number of elements in the Shape_Vector.
-        //post-condition: space = newSize;
-        void resize(int newSize);
+    //Changes the max number of elements in the Shape_Vector.
+    //post-condition: space = newSize;
+    void resize(int newSize);
 
-        //Inserts an element at the end of the Shape_Vector.
-        //post-condtion: val element is inserted at the end of
-        //               Shape_Vector list.
-        void push_back(T val);
+    //Inserts an element at the end of the Shape_Vector.
+    //post-condtion: val element is inserted at the end of
+    //               Shape_Vector list.
+    void push_back(T val);
 
-        //Requests that the Shape_Vector has enough space to contain n(newAlloc) number of elements.
-        //post-condition: if newAlloc > space, then space = newAlloc.
-        //                in other cases, the function will have no affect on the Shape_Vector.
-        void reserve(int newAlloc);
+    //Requests that the Shape_Vector has enough space to contain n(newAlloc) number of elements.
+    //post-condition: if newAlloc > space, then space = newAlloc.
+    //                in other cases, the function will have no affect on the Shape_Vector.
+    void reserve(int newAlloc);
 
-        /*********  ITERATOR  **********/
-        using iterator = T*;
-        using const_iterator = const T*;
+    /*********  ITERATOR  **********/
+    using iterator = T*;
+    using const_iterator = const T*;
 
-        //returns an iterator that points to the beginning of the Shape_Vector.
-        //pre-condition: The Shape_Vector must exist.
-        //post-condition: return elem;
-        iterator begin();
+    //returns an iterator that points to the beginning of the Shape_Vector.
+    //pre-condition: The Shape_Vector must exist.
+    //post-condition: return elem;
+    iterator begin();
 
-        //returns an iterator that points to the beginning of the Shape_Vector.
-        //pre-condition: The Shape_Vector must exist.
-        //post-condition: return elem;
-        const_iterator begin() const;
+    //returns an iterator that points to the beginning of the Shape_Vector.
+    //pre-condition: The Shape_Vector must exist.
+    //post-condition: return elem;
+    const_iterator begin() const;
 
-        //returns an iterator that points to the end of the Shape_Vector.
-        //pre-condition: The Shape_Vector must exist and must have at least one element.
-        //post-condition: return elem + space;
-        iterator end();
+    //returns an iterator that points to the end of the Shape_Vector.
+    //pre-condition: The Shape_Vector must exist and must have at least one element.
+    //post-condition: return elem + space;
+    iterator end();
 
-        //returns an iterator that points to the end of the Shape_Vector.
-        //pre-condition: The Shape_Vector must exist and must have at least one element.
-        //post-condition: return elem + space;
-        const_iterator end() const;
+    //returns an iterator that points to the end of the Shape_Vector.
+    //pre-condition: The Shape_Vector must exist and must have at least one element.
+    //post-condition: return elem + space;
+    const_iterator end() const;
 
-        //Inserts the element v before an element at the specified location in the Shape_Vector.
-        //post-condition: if(size_v + 1 > space), then the function will not add an element.
-        //                Otherwise, size_v gets incremented by 1 and the new element will
-        //                get inserted at the location before the location specified by iterator p.
-        iterator insert(iterator p, const T& v);
+    //Inserts the element v before an element at the specified location in the Shape_Vector.
+    //post-condition: if(size_v + 1 > space), then the function will not add an element.
+    //                Otherwise, size_v gets incremented by 1 and the new element will
+    //                get inserted at the location before the location specified by iterator p.
+    iterator insert(iterator p, const T& v);
 
-        //deletes an element from the list.
-        //post-condition: if(size_v == 0), then the function will not do anything.
-        //                Otherwise, size_v get decremented by 1 and the element
-        //                specified by iterator p will get deleted.
-        iterator erase(iterator p);
+    //deletes an element from the list.
+    //post-condition: if(size_v == 0), then the function will not do anything.
+    //                Otherwise, size_v get decremented by 1 and the element
+    //                specified by iterator p will get deleted.
+    iterator erase(iterator p);
 };
 
 template <class T>
