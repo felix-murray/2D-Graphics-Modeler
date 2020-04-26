@@ -21,8 +21,14 @@ SOURCES += \
     shape.cpp
 
 HEADERS += \
+    line.h \
     mainwindow.h \
-    shape.h
+    polygon.h \
+    polyline.h \
+    rectangle.h \
+    shape.h \
+    shape_Vector.h \
+    text.h
 
 FORMS += \
     mainwindow.ui
