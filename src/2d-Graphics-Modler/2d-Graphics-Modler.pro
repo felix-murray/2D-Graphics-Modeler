@@ -21,8 +21,10 @@ SOURCES += \
     shape.cpp
 
 HEADERS += \
+    ellipse.h \
     line.h \
     mainwindow.h \
+    parser.h \
     polygon.h \
     polyline.h \
     rectangle.h \
