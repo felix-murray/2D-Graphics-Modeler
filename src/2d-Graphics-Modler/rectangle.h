@@ -31,6 +31,7 @@ public:
 private:
     double width;
     double height;
+    QRectF rectangle; //added rectangle
     QPoint location;
 };
 
