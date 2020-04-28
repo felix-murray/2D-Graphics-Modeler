@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QPaintDevice>
 #include <QPainter>
+//#include <QPoint>
 
 class Rectangle : public Shape
 {
