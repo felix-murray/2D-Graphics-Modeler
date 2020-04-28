@@ -25,6 +25,7 @@ SOURCES += \
     polyline.cpp \
     rectangle.cpp \
     shape.cpp \
+    signin.cpp \
     text.cpp
 
 HEADERS += \
@@ -37,10 +38,12 @@ HEADERS += \
     rectangle.h \
     shape.h \
     shape_Vector.h \
+    signin.h \
     text.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    signin.ui
 
 TRANSLATIONS += \
     2d-Graphics-Modler_fr_FR.ts
@@ -49,3 +52,5 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
