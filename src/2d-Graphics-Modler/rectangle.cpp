@@ -2,7 +2,11 @@
 
 void Rectangle::draw(QPaintDevice *device)
 {
-//...
+    QRectF rectangle(10.0, 20.0, 80.0, 60.0);
+    QPainter painter(device);
+    //painter.begin(device);
+    painter.drawRect(rectangle);
+    //painter.end();
 }
 
 void Rectangle::move(int x, int y, int vector)
