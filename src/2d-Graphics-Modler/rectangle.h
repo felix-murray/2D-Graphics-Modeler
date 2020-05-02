@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QPaintDevice>
 #include <QPainter>
+//#include <QPoint>
 
 class Rectangle : public Shape
 {
@@ -30,6 +31,7 @@ public:
 private:
     double width;
     double height;
+    QRectF rectangle; //added rectangle
     QPoint location;
 };
 

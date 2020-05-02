@@ -16,9 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ellipse.cpp \
+    line.cpp \
     main.cpp \
     mainwindow.cpp \
-    shape.cpp
+    parser.cpp \
+    polygon.cpp \
+    polyline.cpp \
+    rectangle.cpp \
+    shape.cpp \
+    signin.cpp \
+    text.cpp
 
 HEADERS += \
     ellipse.h \
@@ -30,10 +38,12 @@ HEADERS += \
     rectangle.h \
     shape.h \
     shape_Vector.h \
+    signin.h \
     text.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    signin.ui
 
 TRANSLATIONS += \
     2d-Graphics-Modler_fr_FR.ts
@@ -42,3 +52,5 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=

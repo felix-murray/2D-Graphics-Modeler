@@ -16,6 +16,7 @@ void Polygon::draw(QPaintDevice *dev)
 
 void Polygon::move(int x, int y, int vertex)
 {
+
     if(vertex < numVerts)
     {
         //sets the x and y coordinates of the vertex in the vertex vector.
@@ -30,6 +31,7 @@ void Polygon::move(int x, int y, int vertex)
 
 double Polygon::area()
 {
+
     int xMid;
     int yMid;
     int xMid2;

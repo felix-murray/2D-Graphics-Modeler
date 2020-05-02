@@ -21,7 +21,7 @@ public:
     void setText(QString newText);
     void setBoxWidth(int newBoxWidth);
     void setBoxHeight(int newBoxHeight);
-    void setFlag(Qt::AlignmentFlag flag);
+    void setFlag(Qt::AlignmentFlag flagParam);
     void setLocation(int x, int y);
     void setLocation(QPoint pt);
     void setDimensions(int w, int h);
