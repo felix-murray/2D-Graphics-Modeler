@@ -20,7 +20,7 @@ public:
     virtual double perimeter() override;
 
     void setNumVertices(int numVertices);
-    int getNumVertices();
+    int getNumVertices()const;
     void addVertex(const QPoint& vertex);
     Shape_Vector<QPoint>& getVertices();
 
