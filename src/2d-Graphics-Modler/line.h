@@ -9,7 +9,7 @@
 class Line : public Shape
 {
 public:
-    Line(QPaintDevice device, int id);
+    Line(QPaintDevice *device, int id);
     ~Line();
 
     void setPoints(QPoint x, QPoint y);

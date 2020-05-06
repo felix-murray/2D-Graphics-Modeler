@@ -1,6 +1,6 @@
 #include "line.h"
 
-Line::Line(QPaintDevice device, int id)
+Line::Line(QPaintDevice *device, int id)
 {
 //...
 }
