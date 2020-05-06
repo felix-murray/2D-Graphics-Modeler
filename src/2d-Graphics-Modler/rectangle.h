@@ -29,6 +29,8 @@ public:
     QPoint& getLocation();
 
 private:
+	int x; 			  //added x, y 
+	int y;
     double width;
     double height;
     QRectF rectangle; //added rectangle
