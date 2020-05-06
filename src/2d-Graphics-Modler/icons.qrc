@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/shape icons">
+        <file>icon_delete_tool.png</file>
+        <file>icon_ellipse.png</file>
+        <file>icon_line.png</file>
+        <file>icon_polyline.png</file>
+        <file>icon_rectangle.png</file>
+        <file>icon_rotate_tool.png</file>
+        <file>icon_save_tool.png</file>
+        <file>icon_select_tool.png</file>
+        <file>icon_text.png</file>
+        <file>icone_polygon.png</file>
+    </qresource>
+</RCC>
