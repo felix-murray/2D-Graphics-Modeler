@@ -50,8 +50,8 @@ public:
      int id;
      Shapes shape;
      QPainter painter;
-     QPen     pen;
-     QBrush   brush;
+     QPen pen;
+     QBrush brush;
 };
 
 #endif // SHAPE_H

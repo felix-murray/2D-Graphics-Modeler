@@ -52,13 +52,31 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../2d-Graphics-Modler/main.cpp \
+SOURCES       = ../2d-Graphics-Modler/ellipse.cpp \
+		../2d-Graphics-Modler/line.cpp \
+		../2d-Graphics-Modler/main.cpp \
 		../2d-Graphics-Modler/mainwindow.cpp \
-		../2d-Graphics-Modler/shape.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+		../2d-Graphics-Modler/parser.cpp \
+		../2d-Graphics-Modler/polygon.cpp \
+		../2d-Graphics-Modler/polyline.cpp \
+		../2d-Graphics-Modler/rectangle.cpp \
+		../2d-Graphics-Modler/shape.cpp \
+		../2d-Graphics-Modler/signin.cpp \
+		../2d-Graphics-Modler/text.cpp moc_mainwindow.cpp \
+		moc_signin.cpp
+OBJECTS       = ellipse.o \
+		line.o \
+		main.o \
 		mainwindow.o \
+		parser.o \
+		polygon.o \
+		polyline.o \
+		rectangle.o \
 		shape.o \
-		moc_mainwindow.o
+		signin.o \
+		text.o \
+		moc_mainwindow.o \
+		moc_signin.o
 DIST          = ../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/qdevice.pri \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/device_config.prf \
@@ -268,10 +286,27 @@ DIST          = ../../../../Qt/5.14.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/exceptions.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.14.2/clang_64/mkspecs/features/lex.prf \
-		../2d-Graphics-Modler/2d-Graphics-Modler.pro ../2d-Graphics-Modler/mainwindow.h \
-		../2d-Graphics-Modler/shape.h ../2d-Graphics-Modler/main.cpp \
+		../2d-Graphics-Modler/2d-Graphics-Modler.pro ../2d-Graphics-Modler/ellipse.h \
+		../2d-Graphics-Modler/line.h \
+		../2d-Graphics-Modler/mainwindow.h \
+		../2d-Graphics-Modler/parser.h \
+		../2d-Graphics-Modler/polygon.h \
+		../2d-Graphics-Modler/polyline.h \
+		../2d-Graphics-Modler/rectangle.h \
+		../2d-Graphics-Modler/shape.h \
+		../2d-Graphics-Modler/shape_Vector.h \
+		../2d-Graphics-Modler/signin.h \
+		../2d-Graphics-Modler/text.h ../2d-Graphics-Modler/ellipse.cpp \
+		../2d-Graphics-Modler/line.cpp \
+		../2d-Graphics-Modler/main.cpp \
 		../2d-Graphics-Modler/mainwindow.cpp \
-		../2d-Graphics-Modler/shape.cpp
+		../2d-Graphics-Modler/parser.cpp \
+		../2d-Graphics-Modler/polygon.cpp \
+		../2d-Graphics-Modler/polyline.cpp \
+		../2d-Graphics-Modler/rectangle.cpp \
+		../2d-Graphics-Modler/shape.cpp \
+		../2d-Graphics-Modler/signin.cpp \
+		../2d-Graphics-Modler/text.cpp
 QMAKE_TARGET  = 2d-Graphics-Modler
 DESTDIR       = 
 TARGET        = 2d-Graphics-Modler.app/Contents/MacOS/2d-Graphics-Modler
@@ -290,7 +325,7 @@ include /Users/zen/Qt/5.14.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-2d-Graphics-Modler.app/Contents/MacOS/2d-Graphics-Modler: ui_mainwindow.h $(OBJECTS)  
+2d-Graphics-Modler.app/Contents/MacOS/2d-Graphics-Modler: ui_mainwindow.h ui_signin.h $(OBJECTS)  
 	@test -d 2d-Graphics-Modler.app/Contents/MacOS/ || mkdir -p 2d-Graphics-Modler.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -751,9 +786,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.14.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../2d-Graphics-Modler/mainwindow.h ../2d-Graphics-Modler/shape.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../2d-Graphics-Modler/main.cpp ../2d-Graphics-Modler/mainwindow.cpp ../2d-Graphics-Modler/shape.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../2d-Graphics-Modler/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../2d-Graphics-Modler/ellipse.h ../2d-Graphics-Modler/line.h ../2d-Graphics-Modler/mainwindow.h ../2d-Graphics-Modler/parser.h ../2d-Graphics-Modler/polygon.h ../2d-Graphics-Modler/polyline.h ../2d-Graphics-Modler/rectangle.h ../2d-Graphics-Modler/shape.h ../2d-Graphics-Modler/shape_Vector.h ../2d-Graphics-Modler/signin.h ../2d-Graphics-Modler/text.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../2d-Graphics-Modler/ellipse.cpp ../2d-Graphics-Modler/line.cpp ../2d-Graphics-Modler/main.cpp ../2d-Graphics-Modler/mainwindow.cpp ../2d-Graphics-Modler/parser.cpp ../2d-Graphics-Modler/polygon.cpp ../2d-Graphics-Modler/polyline.cpp ../2d-Graphics-Modler/rectangle.cpp ../2d-Graphics-Modler/shape.cpp ../2d-Graphics-Modler/signin.cpp ../2d-Graphics-Modler/text.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../2d-Graphics-Modler/mainwindow.ui ../2d-Graphics-Modler/signin.ui $(DISTDIR)/
 	$(COPY_FILE) --parents 2d-Graphics-Modler_fr_FR.ts $(DISTDIR)/
 
 
@@ -789,9 +824,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../../Qt/5.14.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Library/Developer/CommandLineTools/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h ../../../../Qt/5.14.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_signin.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_signin.cpp
 moc_mainwindow.cpp: ../2d-Graphics-Modler/mainwindow.h \
 		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -799,16 +834,27 @@ moc_mainwindow.cpp: ../2d-Graphics-Modler/mainwindow.h \
 		../../../../Qt/5.14.2/clang_64/bin/moc
 	/Users/zen/Qt/5.14.2/clang_64/bin/moc $(DEFINES) --include /Users/zen/work/2D-Graphics-Modeler/src/build-2d-Graphics-Modler-Desktop_Qt_5_14_2_clang_64bit-Debug/moc_predefs.h -I/Users/zen/Qt/5.14.2/clang_64/mkspecs/macx-clang -I/Users/zen/work/2D-Graphics-Modeler/src/2d-Graphics-Modler -I/Users/zen/Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/zen/Qt/5.14.2/clang_64/lib/QtGui.framework/Headers -I/Users/zen/Qt/5.14.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/zen/Qt/5.14.2/clang_64/lib ../2d-Graphics-Modler/mainwindow.h -o moc_mainwindow.cpp
 
+moc_signin.cpp: ../2d-Graphics-Modler/signin.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		moc_predefs.h \
+		../../../../Qt/5.14.2/clang_64/bin/moc
+	/Users/zen/Qt/5.14.2/clang_64/bin/moc $(DEFINES) --include /Users/zen/work/2D-Graphics-Modeler/src/build-2d-Graphics-Modler-Desktop_Qt_5_14_2_clang_64bit-Debug/moc_predefs.h -I/Users/zen/Qt/5.14.2/clang_64/mkspecs/macx-clang -I/Users/zen/work/2D-Graphics-Modeler/src/2d-Graphics-Modler -I/Users/zen/Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/zen/Qt/5.14.2/clang_64/lib/QtGui.framework/Headers -I/Users/zen/Qt/5.14.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/zen/Qt/5.14.2/clang_64/lib ../2d-Graphics-Modler/signin.h -o moc_signin.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_signin.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_signin.h
 ui_mainwindow.h: ../2d-Graphics-Modler/mainwindow.ui \
 		../../../../Qt/5.14.2/clang_64/bin/uic
 	/Users/zen/Qt/5.14.2/clang_64/bin/uic ../2d-Graphics-Modler/mainwindow.ui -o ui_mainwindow.h
+
+ui_signin.h: ../2d-Graphics-Modler/signin.ui \
+		../../../../Qt/5.14.2/clang_64/bin/uic
+	/Users/zen/Qt/5.14.2/clang_64/bin/uic ../2d-Graphics-Modler/signin.ui -o ui_signin.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -821,6 +867,26 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+ellipse.o: ../2d-Graphics-Modler/ellipse.cpp ../2d-Graphics-Modler/ellipse.h \
+		../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ellipse.o ../2d-Graphics-Modler/ellipse.cpp
+
+line.o: ../2d-Graphics-Modler/line.cpp ../2d-Graphics-Modler/line.h \
+		../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o line.o ../2d-Graphics-Modler/line.cpp
 
 main.o: ../2d-Graphics-Modler/main.cpp ../2d-Graphics-Modler/mainwindow.h \
 		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
@@ -835,6 +901,56 @@ mainwindow.o: ../2d-Graphics-Modler/mainwindow.cpp ../2d-Graphics-Modler/mainwin
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../2d-Graphics-Modler/mainwindow.cpp
 
+parser.o: ../2d-Graphics-Modler/parser.cpp ../2d-Graphics-Modler/parser.h \
+		../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		../2d-Graphics-Modler/shape_Vector.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qfile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parser.o ../2d-Graphics-Modler/parser.cpp
+
+polygon.o: ../2d-Graphics-Modler/polygon.cpp ../2d-Graphics-Modler/polygon.h \
+		../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		../2d-Graphics-Modler/shape_Vector.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o polygon.o ../2d-Graphics-Modler/polygon.cpp
+
+polyline.o: ../2d-Graphics-Modler/polyline.cpp ../2d-Graphics-Modler/polyline.h \
+		../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		../2d-Graphics-Modler/shape_Vector.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o polyline.o ../2d-Graphics-Modler/polyline.cpp
+
+rectangle.o: ../2d-Graphics-Modler/rectangle.cpp ../2d-Graphics-Modler/rectangle.h \
+		../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		../2d-Graphics-Modler/shape_Vector.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rectangle.o ../2d-Graphics-Modler/rectangle.cpp
+
 shape.o: ../2d-Graphics-Modler/shape.cpp ../2d-Graphics-Modler/shape.h \
 		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
 		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -844,8 +960,30 @@ shape.o: ../2d-Graphics-Modler/shape.cpp ../2d-Graphics-Modler/shape.h \
 		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o shape.o ../2d-Graphics-Modler/shape.cpp
 
+signin.o: ../2d-Graphics-Modler/signin.cpp ../2d-Graphics-Modler/signin.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		ui_signin.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../../Qt/5.14.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signin.o ../2d-Graphics-Modler/signin.cpp
+
+text.o: ../2d-Graphics-Modler/text.cpp ../2d-Graphics-Modler/text.h \
+		../2d-Graphics-Modler/shape.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/QObject \
+		../../../../Qt/5.14.2/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPaintDevice \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../../Qt/5.14.2/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		../2d-Graphics-Modler/shape_Vector.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o text.o ../2d-Graphics-Modler/text.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_signin.o: moc_signin.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_signin.o moc_signin.cpp
 
 ####### Install
 
