@@ -7,7 +7,7 @@
 #include <QPaintDevice>
 #include <QPainter>
 
-const int DEFAULT_NUM_PTS = 8;
+const int DEFAULT_NUM_PTS = 0; // was 8 originally
 
 class Polyline : public Shape
 {
