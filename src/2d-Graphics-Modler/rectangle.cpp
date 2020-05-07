@@ -1,49 +1,51 @@
 #include "rectangle.h"
 
+Rectangle::Rectangle(QPaintDevice *device, int id)
+          :Shape(device, id, Shapes::RectangleObj),location(0,0)
+{
+    width = 1;
+    height = 1;
+}
+
 //drawing the rectangle on the drawing area
 void Rectangle::draw(QPaintDevice *device)
 {
-    //initialized the width, height, and rectangle
-	x = 10;
-	y = 20;
-    width = 80;
-    height = 60;
-    location = {x, y};
-    rectangle.setRect(x, y, width, height);
-    //drew the rectangle on the drawing area
-    QPainter painter(device);
-    //painter.begin(device);
-    painter.drawRect(rectangle);
-    //painter.end();
+
+    painter.begin(device);
+    painter.setPen(getPen());
+    painter.setBrush(getBrush());
+    painter.drawRect(location.x(), location.y(), width, height);
+    //painter.drawText(location, QString::number(getID()));
+    painter.end();
+
+
 }
 
 //move the rectangle
 void Rectangle::move(int x, int y, int vector)
 {
-    //rectangle = {double (x), double(y), width, height};
-    //QPainter painter(device);
-    //painter.translate(rectangle);
+
+    QPoint temp(x , y);
+    location = temp;
+
 }
 
 //return the area of the rectangle
 double Rectangle::area()
 {
-    double area;
-    area = width * height;
-    return area;
+    return width * height;
 }
 
 //return the perimeter of the rectangle
 double Rectangle::perimeter()
 {
-    double perimeter;
-    perimeter = 2*(width + height);
-    return perimeter;
+    return 2*(width + height);
 }
 
 void Rectangle::setLocation(int x, int y)
 {
-	location = {x, y};
+    QPoint temp(x , y);
+    location = temp;
 }
 
 void Rectangle::setLocation(QPoint pt)
@@ -52,16 +54,16 @@ void Rectangle::setLocation(QPoint pt)
 }
 void Rectangle::setDimensions(double w, double h)
 {
+    // DONT BE STUPID AND PUT A NEGATIVE NUMBER !!!!!!
+
 	width = w;
 	height = h;
 }
 
 void Rectangle::setAll(double w, double h, int x, int y)
 {
-	width = w;
-	height = h;
-	this->x = x;
-	this->y = y;
+    setDimensions(w, h);
+    setLocation(x, y);
 }
 
 //return width of the rectangle
