@@ -1,10 +1,19 @@
 #include "text.h"
 
+Text::Text(QPaintDevice *dev, int id)
+     :Shape(dev, id, Shapes::TextObj), location(0,0)
+{
+    text = "Default text Please Ignore.";
+}
+
+
 void Text::draw(QPaintDevice *dev)
 {
     QPainter painter(dev);
     painter.setFont(font);
-    painter.drawText(location.x(), location.y(), text);
+    painter.setPen(getPen());
+    painter.drawText(location.x(), location.y(), boxWidth, boxHeight, flag, text);
+    painter.end();
 }
 
 void Text::move(const int x, const int y, int junk)
@@ -15,14 +24,12 @@ void Text::move(const int x, const int y, int junk)
 
 double Text::area()
 {
-    double boxArea = boxWidth * boxHeight;
-    return boxArea;
+    return boxWidth * boxHeight;
 }
 
 double Text::perimeter()
 {
-    double boxPerimeter = (2*boxWidth) + (2*boxHeight);
-    return boxPerimeter;
+    return (2*boxWidth) + (2*boxHeight);
 }
 
 void Text::setText(QString newText)
