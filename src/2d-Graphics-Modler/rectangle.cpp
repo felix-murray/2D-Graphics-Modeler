@@ -4,9 +4,12 @@
 void Rectangle::draw(QPaintDevice *device)
 {
     //initialized the width, height, and rectangle
+	x = 10;
+	y = 20;
     width = 80;
     height = 60;
-    rectangle = {10.0, 20.0, width, height};
+    location = {x, y};
+    rectangle.setRect(x, y, width, height);
     //drew the rectangle on the drawing area
     QPainter painter(device);
     //painter.begin(device);
@@ -40,21 +43,25 @@ double Rectangle::perimeter()
 
 void Rectangle::setLocation(int x, int y)
 {
-//...
+	location = {x, y};
 }
 
 void Rectangle::setLocation(QPoint pt)
 {
-//...
+	location = pt;
 }
 void Rectangle::setDimensions(double w, double h)
 {
-//...
+	width = w;
+	height = h;
 }
 
 void Rectangle::setAll(double w, double h, int x, int y)
 {
-//...
+	width = w;
+	height = h;
+	this->x = x;
+	this->y = y;
 }
 
 //return width of the rectangle
@@ -71,5 +78,5 @@ double Rectangle::getHeight()
 
 QPoint& Rectangle::getLocation()
 {
-//...
+	return location;
 }
