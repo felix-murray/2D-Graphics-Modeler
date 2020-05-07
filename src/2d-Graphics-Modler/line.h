@@ -12,7 +12,7 @@ public:
     Line(QPaintDevice *device, int id);
     ~Line();
 
-    void setPoints(QPoint x, QPoint y);
+    void setPoints(QPoint &x, QPoint &y) {line_begin = x; line_end = y;};
 
     void move(const int tX, const int tY, int ptIndex) override;
     void draw(QPaintDevice *device) override;
