@@ -18,7 +18,7 @@ public:
                       EllipseObj,
                       TextObj};
 
-    Shape(QPaintDevice *device = nullptr, int ID = -1, Shapes shapey = Shapes::defaultObj);
+    Shape(QPaintDevice *device, int ID, Shapes shape) {device = nullptr, ID = -1, shape = Shapes::defaultObj;}
 
     //Mutator Functions
     void setShape(Shapes);
@@ -45,11 +45,11 @@ public:
 
  protected:
      QPainter &getQPainter();
+     QPainter painter;
 
  private:
      int id;
      Shapes shape;
-     QPainter painter;
      QPen pen;
      QBrush brush;
 };

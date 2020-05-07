@@ -1,12 +1,6 @@
 #include "shape.h"
 
-Shape::Shape(QPaintDevice *device, int id, ShapeType shape):painter{device},id{id},shape{shape}
-{
-    pen   = Qt::SolidLine;
-    brush = Qt::NoBrush;
-}
-
-void Shape::setShape(Shape st)
+void Shape::setShape(Shapes st)
 {
     this->shape=st;
 }
