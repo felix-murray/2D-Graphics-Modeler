@@ -1,31 +1,36 @@
 #include <cmath>
+#include <QtDebug>
 #include "polygon.h"
 
-Polygon::Polygon(QPaintDevice* dev, int id)
+Polygon::Polygon(QPaintDevice *device, int id) : Shape(device, id, Shape::shape), vertVect(DEFAULT_NUM_VERTS)
 {
-    setDefaultStyle();
-    setID(id);
-    setShape(Shapes(3));
+    setShape(PolygonObj);
     numVerts = 0;
 }
 
-void Polygon::draw(QPaintDevice *dev)
+void Polygon::draw(QPaintDevice *device)
 {
-//...
+    painter.begin(device);
+    painter.setPen(getPen());
+    painter.setBrush(getBrush());
+    painter.drawConvexPolygon(vertsArray, numVerts);
+    painter.drawText(vertsArray[0] ,QString::number(getID()));
+    painter.end();
 }
 
 void Polygon::move(int x, int y, int vertex)
 {
+    QPoint temp(x,y);
 
-    if(vertex < numVerts)
+    if(vertex <= numVerts)
     {
         //sets the x and y coordinates of the vertex in the vertex vector.
-        vertVect[vertex].setX(x);
-        vertVect[vertex].setY(y);
-
-        //sets the c and y coordinates of the vertex in the vertex array.
-        vertsArray[vertex].setX(x);
-        vertsArray[vertex].setY(y);
+        vertVect.set(vertex - 1, temp);
+        vertsArray[vertex - 1] = temp;
+    }
+    else
+    {
+        qDebug() << "unable to move polyline";
     }
 }
 
@@ -96,22 +101,26 @@ double Polygon::perimeter()
 
 void Polygon::setNumVertices(int numVertices)
 {
-    numVerts = numVertices; //sets numVerts to equal numVertices
+    if(numVertices > 0)
+    {
+        numVerts = numVertices;
+    }
+    else
+    {
+        qDebug() << "ERROR: Number of vertices is invalid";
+    }
 }
 
-int Polygon::getNumVertices()
+int Polygon::getNumVertices() const
 {
     return numVerts; //returns the number of vertices in the polygon
 }
 
 void Polygon::addVertex(const QPoint& vertex)
 {
-    if(numVerts < DEFAULT_NUM_VERTS)    //as long as the number of vertices in the polygon does not exceed
-    {                                   //the default number of vertices then the function will add the vertex
-        vertVect.push_back(vertex);     //to the vecter of vertices and the array of vertices and increment
-        vertsArray[numVerts] = vertex;  //numverts by 1.
-        numVerts++;
-    }
+    vertVect.push_back(vertex);
+    vertsArray[numVerts] = vertex;
+    numVerts++;
 }
 
 Shape_Vector<QPoint>& Polygon::getVertices()
