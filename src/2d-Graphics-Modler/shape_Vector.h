@@ -53,6 +53,9 @@ public:
     //                in other cases, the function will have no affect on the Shape_Vector.
     void reserve(int newAlloc);
 
+    //FILL IN COMMENT HERE
+    void set(int index, const T& stuff);
+
     /*********  ITERATOR  **********/
     using iterator = T*;
     using const_iterator = const T*;
@@ -322,6 +325,13 @@ typename Shape_Vector<T>::iterator Shape_Vector<T>::insert(iterator p, const T& 
         size_v++;
     }
     return p;
+}
+
+template<typename T>
+void Shape_Vector<T>::set(int index, const T& stuff)
+{
+    if(index < space)
+        elem[index] = stuff;
 }
 
 template <class T>
