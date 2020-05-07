@@ -10,7 +10,7 @@ using namespace Qt;
 class Shape : public QPainter
 {
 public:
-    enum class Shapes{defaultObj,
+    enum Shapes{defaultObj,
                       LineObj,
                       PolylineObj,
                       PolygonObj,
@@ -46,10 +46,10 @@ public:
  protected:
      QPainter &getQPainter();
      QPainter painter;
+     Shapes shape;
 
  private:
      int id;
-     Shapes shape;
      QPen pen;
      QBrush brush;
 };

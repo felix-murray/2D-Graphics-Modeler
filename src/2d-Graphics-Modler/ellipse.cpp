@@ -1,7 +1,11 @@
+#include "shape.h"
 #include "ellipse.h"
+#include "math.h"
+#include "QDebug"
 
-Ellipse::Ellipse(QPaintDevice *dev, int id) : Shape(dev, id, ShapeType::Ellipse), location(1,1)
+Ellipse::Ellipse(QPaintDevice *dev, int id) : Shape(dev, id, Shape::shape), location(1,1)
 {
+    setShape(EllipseObj);
     width = 1;
     height = 1;
 }
@@ -15,8 +19,8 @@ void Ellipse::move(int x, int y, int na)
 void Ellipse::draw(QPaintDevice* device)
 {
     painter.begin(device);
-    painter.setPen(pen);
-    painter.setBrush(brush);
+    painter.setPen(getPen());
+    painter.setBrush(getBrush());
     painter.drawEllipse(location.x(), location.y(), width, height);
     painter.drawText(location,QString::number(getID()));
     painter.end();
@@ -29,7 +33,7 @@ double Ellipse::area()
 
 double Ellipse::perimeter()
 {
-return 3 * M_PI * (width + height) - qSqrt((3 * width + height) * (width + 3 * height));
+return 3 * M_PI * (width + height) - sqrt((3 * width + height) * (width + 3 * height));
 }
 
 double Ellipse::getWidth()
@@ -56,7 +60,7 @@ void Ellipse::setDimensions(double w, double h)
     }
     else
     {
-        qDebug() << "Width and height have to be positive";
+        qDebug() << "ERROR: Width and height cannot be negative";
     }
 }
 
