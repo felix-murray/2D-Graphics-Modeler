@@ -17,100 +17,100 @@ class Rectangle : public Shape
 {
 public:
 	
-	//! Default Constructor.
+    //! Default Constructor.
     /*!
       Constructs a default rectangle shape.
     */
     Rectangle(QPaintDevice *device = nullptr, int id = -1);
 	
-	//! Destructor.
+    //! Destructor.
     /*!
       Destroys a shape.
     */
     ~Rectangle() override {}
 
-	//! Function that draws the rectangle shape on the canvas.
+    //! Function that draws the rectangle shape on the canvas.
     /*!
       \param device
     */
     void draw(QPaintDevice *device) override;
 	
-	//! Function that moves the rectangle to a certain point.
+    //! Function that moves the rectangle to a certain point.
     /*!
       \param x
       \param y
-	  \param vector
+      \param vector
     */
     void move(int x, int y, int vector) override;
 	
-	//! Function that calculates area and returns it.
+    //! Function that calculates area and returns it.
     /*!
       \return width * height
     */
     double area() override;
 	
-	//! Function that calculates perimeter and returns it.
+    //! Function that calculates perimeter and returns it.
     /*!
       \return 2*(width + height)
     */
     double perimeter() override;
 
-	//Mutator functions
+    //Mutator functions
 	
-	//! Mutator Function to set rectangle's axis.
+    //! Mutator Function to set rectangle's axis.
     /*!
       \param x
       \param y
     */
     void setLocation(int x, int y);
 	
-	//! Mutator Function to set rectangle's axis.
+    //! Mutator Function to set rectangle's axis.
     /*!
       \param pt
     */
     void setLocation(QPoint pt);
 	
-	//! Mutator Function to set rectangle's width and height.
+    //! Mutator Function to set rectangle's width and height.
     /*!
       \param w
       \param h
     */
     void setDimensions(double w, double h);
 	
-	//! Mutator Function to set all of rectangle's dimensions.
+    //! Mutator Function to set all of rectangle's dimensions.
     /*!
       \param w
       \param h
-	  \param x
-	  \param y
+      \param x
+      \param y
     */
     void setAll(double w, double h, int x, int y);
 	
-	//Accessor functions
+    //Accessor functions
 	
-	//! Accessor Function to get width.
+    //! Accessor Function to get width.
     /*!
       \return width
     */
     double getWidth();
 	
-	//! Accessor Function to get height.
+    //! Accessor Function to get height.
     /*!
       \return height
     */
     double getHeight();
 	
-	//! Accessor Function to get axis.
+    //! Accessor Function to get axis.
     /*!
       \return location
     */
     QPoint& getLocation();
 
 private:
-	int x; 				/*!< x-axis for the rectangle, used to draw rectangle on a certain x-axis. */
-	int y;				/*!< y-axis for the rectangle, used to draw rectangle on a certain y-axis. */
-    double width;		/*!< width of the rectangle, used to draw rectangle based on width. */
-    double height;		/*!< height of the rectangle, used to draw rectangle based on height. */
+        int x; 		/*!< x-axis for the rectangle, used to draw rectangle on a certain x-axis. */
+        int y;		/*!< y-axis for the rectangle, used to draw rectangle on a certain y-axis. */
+    double width;	/*!< width of the rectangle, used to draw rectangle based on width. */
+    double height;	/*!< height of the rectangle, used to draw rectangle based on height. */
     QRectF rectangle;	/*!< rectangle class used to draw a rectangle. */
     QPoint location;	/*!< location used to store x and y-axis. */
 };
