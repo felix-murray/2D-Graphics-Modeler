@@ -107,8 +107,8 @@ public:
     QPoint& getLocation();
 
 private:
-        int x; 		/*!< x-axis for the rectangle, used to draw rectangle on a certain x-axis. */
-        int y;		/*!< y-axis for the rectangle, used to draw rectangle on a certain y-axis. */
+    int x; 		/*!< x-axis for the rectangle, used to draw rectangle on a certain x-axis. */
+    int y;		/*!< y-axis for the rectangle, used to draw rectangle on a certain y-axis. */
     double width;	/*!< width of the rectangle, used to draw rectangle based on width. */
     double height;	/*!< height of the rectangle, used to draw rectangle based on height. */
     QRectF rectangle;	/*!< rectangle class used to draw a rectangle. */
