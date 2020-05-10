@@ -2,11 +2,6 @@
 #include <QtDebug>
 #include "polygon.h"
 
-Polygon::Polygon(QPaintDevice *device, int id) : Shape(device, id, Shape::shape), vertVect(DEFAULT_NUM_VERTS)
-{
-    setShape(PolygonObj);
-    numVerts = 0;
-}
 
 void Polygon::draw(QPaintDevice *device)
 {

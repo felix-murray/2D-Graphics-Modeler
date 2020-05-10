@@ -10,14 +10,15 @@ class Line : public Shape
 {
 public:
     Line(QPaintDevice *device, int id);
+    Line(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, QPoint P1, QPoint P2);
     virtual ~Line() {};
 
     void setPoints(QPoint &x, QPoint &y) {line_begin = x; line_end = y;};
 
     void move(const int tX, const int tY, int ptIndex) override;
     void draw(QPaintDevice *device) override;
-    //double perimeter() override;
-    //double area() override;
+    double perimeter() override;
+    double area() override;
 
 private:
     QPoint line_begin;

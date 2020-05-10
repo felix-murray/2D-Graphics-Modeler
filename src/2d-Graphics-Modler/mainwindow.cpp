@@ -54,6 +54,104 @@ MainWindow::MainWindow(QWidget *parent)
     ui->rectbrush_style_box->addItem("Vertical Pattern");
     ui->rectbrush_style_box->addItem("No Brush");
 
+//*** ELLIPSE COMBO BOXES *** ///
+    ui->ellipsepen_color_box->addItem("white");
+    ui->ellipsepen_color_box->addItem("black");
+    ui->ellipsepen_color_box->addItem("red");
+    ui->ellipsepen_color_box->addItem("green");
+    ui->ellipsepen_color_box->addItem("blue");
+    ui->ellipsepen_color_box->addItem("cyan");
+    ui->ellipsepen_color_box->addItem("magenta");
+    ui->ellipsepen_color_box->addItem("yellow");
+    ui->ellipsepen_color_box->addItem("gray");
+
+    ui->ellipsepen_style_box->addItem("Solid Line");
+    ui->ellipsepen_style_box->addItem("Dash Line");
+    ui->ellipsepen_style_box->addItem("Dot Line");
+    ui->ellipsepen_style_box->addItem("Dash Dot Line");
+    ui->ellipsepen_style_box->addItem("Dash Dot Dot Line");
+    ui->ellipsepen_style_box->addItem("No Pen");
+
+    ui->ellipsepencap_style_box->addItem("Square Cap");
+    ui->ellipsepencap_style_box->addItem("Flat Cap");
+    ui->ellipsepencap_style_box->addItem("Round Cap");
+
+    ui->ellipsepenjoin_style_box->addItem("BevelJoin");
+    ui->ellipsepenjoin_style_box->addItem("MiterJoin");
+    ui->ellipsepenjoin_style_box->addItem("RoundJoin");
+
+    ui->ellipsebrush_color_box->addItem("white");
+    ui->ellipsebrush_color_box->addItem("black");
+    ui->ellipsebrush_color_box->addItem("red");
+    ui->ellipsebrush_color_box->addItem("green");
+    ui->ellipsebrush_color_box->addItem("blue");
+    ui->ellipsebrush_color_box->addItem("cyan");
+    ui->ellipsebrush_color_box->addItem("magenta");
+    ui->ellipsebrush_color_box->addItem("yellow");
+    ui->ellipsebrush_color_box->addItem("gray");
+
+    ui->ellipsebrush_style_box->addItem("Solid Pattern");
+    ui->ellipsebrush_style_box->addItem("Horizontal Pattern");
+    ui->ellipsebrush_style_box->addItem("Vertical Pattern");
+    ui->ellipsebrush_style_box->addItem("No Brush");
+
+//*** LINE COMBO BOXES *** ///
+    ui->linepen_color_box->addItem("white");
+    ui->linepen_color_box->addItem("black");
+    ui->linepen_color_box->addItem("red");
+    ui->linepen_color_box->addItem("green");
+    ui->linepen_color_box->addItem("blue");
+    ui->linepen_color_box->addItem("cyan");
+    ui->linepen_color_box->addItem("magenta");
+    ui->linepen_color_box->addItem("yellow");
+    ui->linepen_color_box->addItem("gray");
+
+    ui->linepen_style_box->addItem("Solid Line");
+    ui->linepen_style_box->addItem("Dash Line");
+    ui->linepen_style_box->addItem("Dot Line");
+    ui->linepen_style_box->addItem("Dash Dot Line");
+    ui->linepen_style_box->addItem("Dash Dot Dot Line");
+    ui->linepen_style_box->addItem("No Pen");
+
+    ui->linepencap_style_box->addItem("Square Cap");
+    ui->linepencap_style_box->addItem("Flat Cap");
+    ui->linepencap_style_box->addItem("Round Cap");
+
+    ui->linepenjoin_style_box->addItem("BevelJoin");
+    ui->linepenjoin_style_box->addItem("MiterJoin");
+    ui->linepenjoin_style_box->addItem("RoundJoin");
+
+// **** TEXT COMBO BOXES **** ///
+    ui->text_color_box->addItem("white");
+    ui->text_color_box->addItem("black");
+    ui->text_color_box->addItem("red");
+    ui->text_color_box->addItem("green");
+    ui->text_color_box->addItem("blue");
+    ui->text_color_box->addItem("cyan");
+    ui->text_color_box->addItem("magenta");
+    ui->text_color_box->addItem("yellow");
+    ui->text_color_box->addItem("gray");
+
+    ui->text_allignment_box->addItem("AlignLeft");
+    ui->text_allignment_box->addItem("AlignCenter");
+    ui->text_allignment_box->addItem("AlignRight");
+    ui->text_allignment_box->addItem("AlignCenter");
+    ui->text_allignment_box->addItem("AlignBottom");
+
+    ui->text_fontfamily_box->addItem("ComicSansMS");
+    ui->text_fontfamily_box->addItem("Courier");
+    ui->text_fontfamily_box->addItem("Helvetica");
+    ui->text_fontfamily_box->addItem("Times");
+
+    ui->text_fontstyle_box->addItem("StyleNormal");
+    ui->text_fontstyle_box->addItem("StyleItalic");
+    ui->text_fontstyle_box->addItem("StyleOblique");
+
+    ui->text_fontweight_box->addItem("Thin");
+    ui->text_fontweight_box->addItem("Light");
+    ui->text_fontweight_box->addItem("Normal");
+    ui->text_fontweight_box->addItem("Bold");
+
 
 
 }
@@ -119,6 +217,31 @@ void MainWindow::on_ellipse_button_clicked()
     ui->menustack->addWidget(ui->add_ellipse);
     ui->menustack->setCurrentWidget(ui->add_ellipse);
 }
+
+void MainWindow::on_ellipse_build_button_clicked()
+{
+    int PS = ui->ellipsepen_style_box->currentIndex();
+    int PW = ui->ellipsepen_width_box->text().toInt();
+    int PC = ui->ellipsepen_color_box->currentIndex();
+
+    int PCS = ui->ellipsepencap_style_box->currentIndex();
+    int PJS = ui->ellipsepenjoin_style_box->currentIndex();
+
+    int BC = ui->ellipsebrush_color_box->currentIndex();
+    int BS = ui->ellipsebrush_style_box->currentIndex();
+
+    int X = ui->ellipse_x->text().toInt();
+    int Y = ui->ellipse_y->text().toInt();
+    int W = ui->ellipse_width->text().toInt();
+    int H = ui->ellipse_height->text().toInt();
+
+    Shape *ellipse = new Ellipse(PS, PW, PC, PCS, PJS, BC, BS, X , Y, W, H);
+
+    ui->Canvas->addShape(ellipse);
+
+    ui->Canvas->update();
+}
+
 void MainWindow::on_cancelellipse_button_clicked()
 {
         on_cancel_button_clicked();
@@ -129,6 +252,26 @@ void MainWindow::on_line_button_clicked()
     ui->menustack->addWidget(ui->add_line);
     ui->menustack->setCurrentWidget(ui->add_line);
 }
+
+void MainWindow::on_line_build_button_clicked()
+{
+    int PS = ui->linepen_style_box->currentIndex();
+    int PW = ui->linepen_width_box->text().toInt();
+    int PC = ui->linepen_color_box->currentIndex();
+
+    int PCS = ui->linepencap_style_box->currentIndex();
+    int PJS = ui->linepenjoin_style_box->currentIndex();
+
+    QPoint P1(ui->line_x->text().toInt(), ui->line_y->text().toInt());
+    QPoint P2(ui->line_width->text().toInt(), ui->line_height->text().toInt());
+
+    Shape *line = new Line(PS, PW, PC, PCS, PJS, -1, -1, P1, P2);
+
+    ui->Canvas->addShape(line);
+
+    ui->Canvas->update();
+}
+
 void MainWindow::on_cancelline_button()
 {
     on_cancel_button_clicked();
@@ -149,35 +292,30 @@ void MainWindow::on_text_button_clicked()
     ui->menustack->addWidget(ui->add_text);
     ui->menustack->setCurrentWidget(ui->add_text);
 }
+
+void MainWindow::on_text_build_button_clicked()
+{
+    QString text = ui->text_box->toPlainText();
+    int color = ui->text_color_box->currentIndex();
+    int font = ui->text_fontfamily_box->currentIndex();
+    int align = ui->text_allignment_box->currentIndex();
+    int style = ui->text_fontstyle_box->currentIndex();
+    int weight = ui->text_fontweight_box->currentIndex();
+
+    int boxW = ui->text_box_width->text().toInt();
+    int boxH = ui->text_box_height->text().toInt();
+
+    QPoint P(ui->text_x->text().toInt(), ui->text_y->text().toInt());
+
+    Shape *line = new Text(text, color, font, align, style, weight, boxW, boxH, P);
+
+    ui->Canvas->addShape(line);
+
+    ui->Canvas->update();
+}
+
 void MainWindow::on_canceltext_button_clicked()
 {
         on_cancel_button_clicked();
-}
-
-
-
-QComboBox * MainWindow::comboPenColors(QComboBox *combo)
-{
-    combo->addItem("white");
-    combo->addItem("black");
-    combo->addItem("red");
-    combo->addItem("green");
-    combo->addItem("blue");
-    combo->addItem("cyan");
-    combo->addItem("magenta");
-    combo->addItem("yellow");
-    combo->addItem("gray");
-    return combo;
-}
-
-QComboBox * MainWindow::comboPenStyles(QComboBox *combo)
-{
-    combo->addItem("Solid Line");
-    combo->addItem("Dash Line");
-    combo->addItem("Dot Line");
-    combo->addItem("Dash Dot Line");
-    combo->addItem("Dash Dot Dot Line");
-    combo->addItem("No Pen");
-    return combo;
 }
 

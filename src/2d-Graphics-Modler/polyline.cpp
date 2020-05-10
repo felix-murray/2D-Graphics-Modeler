@@ -1,11 +1,5 @@
 #include "polyline.h"
 
-Polyline::Polyline(QPaintDevice *device, int id)
-         :Shape(device, id, Shapes::PolylineObj), pts(DEFAULT_NUM_PTS)
-{
-    numPts = DEFAULT_NUM_PTS;
-}
-
 
 
 void Polyline::addPoint(const QPoint& pt)

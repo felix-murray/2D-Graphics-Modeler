@@ -13,6 +13,7 @@ public:
     
     // Constructor using QPaintDevice
     Ellipse(QPaintDevice* device = nullptr, int id = -1);
+    Ellipse(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int X , int Y, int W, int H);
 
     // Default destructor
     ~Ellipse() override {}

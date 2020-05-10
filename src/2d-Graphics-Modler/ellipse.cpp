@@ -3,24 +3,16 @@
 #include "math.h"
 #include "QDebug"
 
-Ellipse::Ellipse(QPaintDevice *dev, int id) : Shape(dev, id, Shape::shape), location(1,1)
+
+Ellipse::Ellipse(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int X , int Y, int W, int H)
+        :Shape(PS, PW, PC, PCS, PJS, BC, BS)
 {
-    setShape(EllipseObj);
-    width = 100;
-    height = 100;
+    location.setX(X);
+    location.setY(Y);
+    width = W;
+    height = H;
 }
 
-/*
-Ellipse::Ellipse(int num, QColor PC)
-        :Shape(PC)
-{
-    location.setX(100);
-    location.setY(100);
-
-    width = num;
-    height = 100;
-}
-*/
 
 void Ellipse::move(int x, int y, int na)
 {
