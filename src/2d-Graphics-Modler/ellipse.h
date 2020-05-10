@@ -11,6 +11,7 @@ class Ellipse : public Shape
 public:
     Ellipse(QPaintDevice* device = nullptr, int id = -1);
     ~Ellipse() override {}
+    Ellipse(int num, QColor PC);
 
     void move(int x, int y, int na) override;
     void draw(QPaintDevice* device) override;

@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QPaintDevice>
 #include <QPainter>
+#include <string>
 
 using namespace Qt;
 
@@ -19,7 +20,7 @@ public:
                       TextObj};
 
     Shape(QPaintDevice *device, int ID, Shapes shape) {device = nullptr, ID = -1, shape = Shapes::defaultObj;}
-
+    Shape(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS);
     //Mutator Functions
     void setShape(Shapes);
     void setBrush(GlobalColor, BrushStyle);
