@@ -6,9 +6,21 @@
 Ellipse::Ellipse(QPaintDevice *dev, int id) : Shape(dev, id, Shape::shape), location(1,1)
 {
     setShape(EllipseObj);
-    width = 1;
-    height = 1;
+    width = 100;
+    height = 100;
 }
+
+/*
+Ellipse::Ellipse(int num, QColor PC)
+        :Shape(PC)
+{
+    location.setX(100);
+    location.setY(100);
+
+    width = num;
+    height = 100;
+}
+*/
 
 void Ellipse::move(int x, int y, int na)
 {

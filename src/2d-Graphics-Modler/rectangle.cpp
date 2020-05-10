@@ -1,10 +1,13 @@
 #include "rectangle.h"
 
-Rectangle::Rectangle(QPaintDevice *device, int id)
-          :Shape(device, id, Shapes::RectangleObj),location(0,0)
+
+Rectangle::Rectangle(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int X , int Y, int W, int H)
+          :Shape(PS, PW, PC, PCS, PJS, BC, BS)
 {
-    width = 1;
-    height = 1;
+    width = W;
+    height = H;
+    location.setX(X);
+    location.setY(Y);
 }
 
 //drawing the rectangle on the drawing area
@@ -15,7 +18,7 @@ void Rectangle::draw(QPaintDevice *device)
     painter.setPen(getPen());
     painter.setBrush(getBrush());
     painter.drawRect(location.x(), location.y(), width, height);
-    //painter.drawText(location, QString::number(getID()));
+    painter.drawText(location, QString::number(getID()));
     painter.end();
 
 

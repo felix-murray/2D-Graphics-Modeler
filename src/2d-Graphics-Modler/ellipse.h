@@ -16,6 +16,7 @@ public:
 
     // Default destructor
     ~Ellipse() override {}
+    Ellipse(int num, QColor PC);
 
     // Class functions
     void move(int x, int y, int na) override;

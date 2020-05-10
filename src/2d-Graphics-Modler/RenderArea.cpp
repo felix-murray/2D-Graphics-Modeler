@@ -9,7 +9,7 @@ RenderArea::RenderArea(QWidget *parent)
     //readShapeFile();
 }
 
-void RenderArea::paintEvent(QPaintEvent * event)
+void RenderArea::paintEvent(QPaintEvent *)
 {
     QPaintDevice* device = this;
     for(int i = 0; i < ShapeMagazine.size(); i++)
@@ -25,7 +25,7 @@ void RenderArea::addShape(Shape* shapeIn)
 {
     ShapeMagazine.push_back(shapeIn);
     numShapes++;
-    shapeIn->draw(this);
+    //shapeIn->draw(this);
 }
 
 void RenderArea::moveShape(int index, int coord, int x, int y)

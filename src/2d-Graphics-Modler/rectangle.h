@@ -16,19 +16,18 @@
 class Rectangle : public Shape
 {
 public:
-	
-    //! Default Constructor.
-    /*!
-      Constructs a default rectangle shape.
-    */
-    Rectangle(QPaintDevice *device = nullptr, int id = -1);
-	
     //! Destructor.
     /*!
       Destroys a shape.
     */
     ~Rectangle() override {}
-
+    
+    //! Constructor.
+    /*!
+      Constructs a rectangle shape.
+    */
+    Rectangle(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int X , int Y, int W, int H);
+    
     //! Function that draws the rectangle shape on the canvas.
     /*!
       \param device

@@ -10,5 +10,7 @@
         <file>icon_select_tool.png</file>
         <file>icon_text.png</file>
         <file>icone_polygon.png</file>
+        <file>windows.png</file>
+        <file>UnicornBarfing.png</file>
     </qresource>
 </RCC>
