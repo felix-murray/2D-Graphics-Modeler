@@ -7,12 +7,13 @@
 #include <QPaintDevice>
 #include <QPainter>
 
-const int DEFAULT_NUM_PTS = 0; // was 8 originally
+const int DEFAULT_NUM_PTS = 8; // was 8 originally
 
 class Polyline : public Shape
 {
 public:
      Polyline(QPaintDevice* device = nullptr, int id = -1);
+     Polyline(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int NP, QPoint* PV);
     ~Polyline()  override {}
 
     void addPoint(const QPoint& pt);

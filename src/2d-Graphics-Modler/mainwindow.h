@@ -12,6 +12,8 @@
 #include "line.h"
 #include "ellipse.h"
 #include "RenderArea.h"
+#include "polyline.h"
+#include "polygon.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -56,11 +58,14 @@ private slots:
     void on_cancelline_button();
 
     void on_polyline_button_clicked();
+    void on_pline_build_button_clicked();
     void on_cancelpolyline_button_clicked();
 
     void on_text_button_clicked();
     void on_text_build_button_clicked();
     void on_canceltext_button_clicked();
+
+    void on_select_button_clicked();
 
 
 private:
