@@ -1,6 +1,16 @@
 #include "polyline.h"
 
 
+Polyline::Polyline(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int NP, QPoint* PV)
+         : Shape(PS, PW, PC, PCS, PJS, BC, BS)
+{
+    numPts = NP;
+    for(int i = 0; i <= NP; i ++)
+    {
+        pts.push_back(PV[i]);
+    }
+}
+
 
 void Polyline::addPoint(const QPoint& pt)
 {

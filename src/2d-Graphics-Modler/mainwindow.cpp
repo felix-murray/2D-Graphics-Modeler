@@ -152,6 +152,32 @@ MainWindow::MainWindow(QWidget *parent)
     ui->text_fontweight_box->addItem("Normal");
     ui->text_fontweight_box->addItem("Bold");
 
+// *********POLY LINE COMBO BOXS ***** ///
+
+    ui->plinepen_color_box->addItem("white");
+    ui->plinepen_color_box->addItem("black");
+    ui->plinepen_color_box->addItem("red");
+    ui->plinepen_color_box->addItem("green");
+    ui->plinepen_color_box->addItem("blue");
+    ui->plinepen_color_box->addItem("cyan");
+    ui->plinepen_color_box->addItem("magenta");
+    ui->plinepen_color_box->addItem("yellow");
+    ui->plinepen_color_box->addItem("gray");
+
+    ui->plinepen_style_box->addItem("Solid Line");
+    ui->plinepen_style_box->addItem("Dash Line");
+    ui->plinepen_style_box->addItem("Dot Line");
+    ui->plinepen_style_box->addItem("Dash Dot Line");
+    ui->plinepen_style_box->addItem("Dash Dot Dot Line");
+    ui->plinepen_style_box->addItem("No Pen");
+
+    ui->plinepencap_style_box->addItem("Square Cap");
+    ui->plinepencap_style_box->addItem("Flat Cap");
+    ui->plinepencap_style_box->addItem("Round Cap");
+
+    ui->plinepenjoin_style_box->addItem("BevelJoin");
+    ui->plinepenjoin_style_box->addItem("MiterJoin");
+    ui->plinepenjoin_style_box->addItem("RoundJoin");
 
 
 }
@@ -282,6 +308,57 @@ void MainWindow::on_polyline_button_clicked()
     ui->menustack->addWidget(ui->add_polyline);
     ui->menustack->setCurrentWidget(ui->add_polyline);
 }
+
+void MainWindow::on_pline_build_button_clicked()
+{
+    int PS = ui->plinepen_style_box->currentIndex();
+    int PW = ui->plinepen_width_box->text().toInt();
+    int PC = ui->plinepen_color_box->currentIndex();
+
+    int PCS = ui->plinepencap_style_box->currentIndex();
+    int PJS = ui->plinepenjoin_style_box->currentIndex();
+
+    int NP = ui->plinepen_numpts_box->text().toInt();
+
+    QPoint PV[NP];
+
+    for(int i = 0; i < NP; i++)
+    {
+        if(i == 0)
+        {
+            QPoint p1(ui->pline_x1->text().toInt(), ui->pline_y1->text().toInt());
+            PV[i] =p1;
+        }
+        if(i == 1)
+        {
+            QPoint p2(ui->pline_x2->text().toInt(), ui->pline_y2->text().toInt());
+            PV[i] = p2;
+        }
+        if(i == 2)
+        {
+            QPoint p3(ui->pline_x3->text().toInt(), ui->pline_y3->text().toInt());
+            PV[i] = p3;
+        }
+        if(i == 3)
+        {
+            QPoint p4(ui->pline_x4->text().toInt(), ui->pline_y4->text().toInt());
+            PV[i] = p4;
+        }
+        if(i == 4)
+        {
+            QPoint p5(ui->pline_x5->text().toInt(), ui->pline_y5->text().toInt());
+            PV[i] = p5;
+        }
+    }
+
+    Shape *polyline = new Polyline(PS, PW, PC, PCS, PJS, -1, -1, NP, PV);
+
+
+    ui->Canvas->addShape(polyline);
+
+    ui->Canvas->update();
+}
+
 void MainWindow::on_cancelpolyline_button_clicked()
 {
     on_cancel_button_clicked();
@@ -317,5 +394,11 @@ void MainWindow::on_text_build_button_clicked()
 void MainWindow::on_canceltext_button_clicked()
 {
         on_cancel_button_clicked();
+}
+
+void MainWindow::on_select_button_clicked()
+{
+    ui->menustack->addWidget(ui->selection_page);
+    ui->menustack->setCurrentWidget(ui->selection_page);
 }
 

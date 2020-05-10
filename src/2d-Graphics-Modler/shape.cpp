@@ -1,5 +1,7 @@
 #include "shape.h"
 
+int Shape::numShapes = 19864;
+
 Shape::Shape(int TC)
 {
 
@@ -24,6 +26,9 @@ Shape::Shape(int TC)
         default: pen.setColor(gray);
         break;
     }
+
+    id = numShapes;
+    numShapes++;
 }
 
 Shape::Shape(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS)
@@ -127,6 +132,9 @@ Shape::Shape(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS)
         default: brush.setStyle(NoBrush);
         break;
     }
+
+    id = numShapes;
+    numShapes++;
 }
 
 
@@ -158,3 +166,4 @@ QPainter &Shape::getQPainter()
 {
     return painter;
 }
+
