@@ -22,8 +22,6 @@ Design a very readable, easy to use interface to demonstrate your program. Conti
 
 Write at least 10 agile stories before any software is developed. Each story must be in the proper format (As a ...). Each story must contain a detailed description, assignee, story point estimation, priority, list of tasks and tests, and definition of done. The team must identify a baseline story with a story point value of one; refer to group project homework assignment #1 (gphw01) due March 26th.
 
-Perform white box testing to validate that 2d modeler api is working as expected. Write white box unit tests and test plan; refer to gphw02 due May 5th.
-
 Submit a UML class diagram, at least three use-case and one state diagram with your project; refer to gphw03 due May 5th.
 The team must follow the Scrum process. The Scrum master must log all team meetings (i.e. daily scrum) and document the sprint backlog. The product owner must document the backlog. Project will consist of two three-week sprint sessions: sprint#1 & sprint#2.
 Run Doxygen on your source code.
@@ -44,7 +42,4 @@ style, text font weight. All shapes must also have a unique ID.
 are visible in the rendering area. – administrator only
 6. Your program should be able to add and remove shapes, including
 text, being rendered. This is accomplished via an add/remove shape form. All changes are visible in the rendering area. – administrator only
-7. Produce a shape listing report sorted by shape id (at any time). All shape properties should be included in the report.
-8. Produce a shape listing report of ONLY shapes with an area sorted by area (at any time). The shape type, id and area should be included in the report.
-9. Produce a shape listing report of ONLY shapes with a perimeter sorted by perimeter (at any time). The shape type, id and perimeter should be included in the report.
 10. Save all changes between executions
