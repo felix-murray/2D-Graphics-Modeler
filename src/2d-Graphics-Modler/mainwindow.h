@@ -2,6 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
+#include <QListView>
+#include <QObject>
+#include <QComboBox>
+#include "shape.h"
+#include "RenderArea.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,8 +20,63 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void getShapeType();
+    void getPenColor();
+    void getPenStyle();
+    void getPenCapStyle();
+    void getPenJoinStyle();
+    void getBrushColor();
+    void getBrushStyle();
+    void getAlign();
+    void getTextColor();
+    void getTextWeight();
+    void getTextStyle();
+    void getFontFamily();
+    void getPenWidth();
+
+
+
+    QComboBox * comboPenColors(QComboBox * combo);
+    QComboBox * comboPenStyles(QComboBox * combo);
+
+
+private slots:
+    void on_polygon_button_clicked();
+    void on_cancelpoly_button_clicked();
+
+    void on_rectangle_button_clicked();
+    void on_rectangle_build_button_clicked();
+    void on_cancel_button_clicked();
+
+    void on_ellipse_button_clicked();
+    void on_cancelellipse_button_clicked();
+
+    void on_line_button_clicked();
+    void on_cancelline_button();
+
+    void on_polyline_button_clicked();
+    void on_cancelpolyline_button_clicked();
+
+    void on_text_button_clicked();
+    void on_canceltext_button_clicked();
+
 
 private:
     Ui::MainWindow *ui;
+
+        RenderArea *renderArea;
+
+        //Shape_Vector<Shape> shapeList;
+
+        QComboBox *shapeComboBox;
+        QComboBox *penStyleComboBox;
+        QComboBox *penCapComboBox;
+        QComboBox *penJoinComboBox;
+        QComboBox *brushStyleComboBox;
+
+
+    int              The_penWidth{4};
+
+
 };
 #endif // MAINWINDOW_H

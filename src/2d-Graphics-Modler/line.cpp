@@ -1,6 +1,7 @@
 #include "line.h"
 
-Line::Line(QPaintDevice *device, int id) : Shape(device, id, Shape::shape), line_begin(1,1), line_end(1,1)
+Line::Line(QPaintDevice *device, int id)
+     : Shape(device, id, Shape::LineObj), line_begin(1,1), line_end(1,1)
 {
     setShape(LineObj);
 }
