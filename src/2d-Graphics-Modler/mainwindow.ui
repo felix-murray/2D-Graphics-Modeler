@@ -481,7 +481,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="start_page">
      <widget class="QLabel" name="Leftcolor_6">
@@ -1067,7 +1067,7 @@
        <string>cancel</string>
       </property>
      </widget>
-     <widget class="QLabel" name="rectangle_label_5">
+     <widget class="QLabel" name="ellipseangle_label">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -1085,6 +1085,328 @@
       </property>
       <property name="text">
        <string>Ellipse</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>93</y>
+        <width>51</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pen Width</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="ellipsepenjoin_style_box_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>380</y>
+        <width>31</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Y</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="ellipsepen_style_box">
+      <property name="geometry">
+       <rect>
+        <x>8</x>
+        <y>70</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="ellipsepencap_style_box_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>380</y>
+        <width>31</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ellipse_build_button">
+      <property name="geometry">
+       <rect>
+        <x>14</x>
+        <y>430</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>BUILD</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>51</y>
+        <width>47</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pen Style</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pen Cap Style</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="ellipse_y">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>400</y>
+        <width>51</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>500</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>210</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pen Join Style</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="ellipse_x">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>400</y>
+        <width>51</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>1000</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="ellipse_height">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>360</y>
+        <width>51</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>1000</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>131</y>
+        <width>47</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pen Color</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>340</y>
+        <width>31</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Width</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="ellipse_width">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>360</y>
+        <width>51</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>1000</number>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ellipsepen_width_box">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="ellipsebrush_color_box">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>69</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="minimumContentsLength">
+       <number>0</number>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="ellipsebrush_style_box">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>320</y>
+        <width>111</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>340</y>
+        <width>31</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Height</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Brush Color</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="ellipsepen_color_box">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>150</y>
+        <width>69</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+      </property>
+      <property name="minimumContentsLength">
+       <number>0</number>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>300</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Brush Style</string>
       </property>
      </widget>
     </widget>
