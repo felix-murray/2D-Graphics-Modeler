@@ -6,7 +6,11 @@
 #include <QListView>
 #include <QObject>
 #include <QComboBox>
-#include "shape.h"
+#include "RenderArea.h"
+#include "rectangle.h"
+#include "text.h"
+#include "line.h"
+#include "ellipse.h"
 #include "RenderArea.h"
 
 QT_BEGIN_NAMESPACE
@@ -35,11 +39,6 @@ public:
     void getPenWidth();
 
 
-
-    QComboBox * comboPenColors(QComboBox * combo);
-    QComboBox * comboPenStyles(QComboBox * combo);
-
-
 private slots:
     void on_polygon_button_clicked();
     void on_cancelpoly_button_clicked();
@@ -49,15 +48,18 @@ private slots:
     void on_cancel_button_clicked();
 
     void on_ellipse_button_clicked();
+    void on_ellipse_build_button_clicked();
     void on_cancelellipse_button_clicked();
 
     void on_line_button_clicked();
+    void on_line_build_button_clicked();
     void on_cancelline_button();
 
     void on_polyline_button_clicked();
     void on_cancelpolyline_button_clicked();
 
     void on_text_button_clicked();
+    void on_text_build_button_clicked();
     void on_canceltext_button_clicked();
 
 

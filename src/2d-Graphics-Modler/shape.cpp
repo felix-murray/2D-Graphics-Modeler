@@ -1,5 +1,31 @@
 #include "shape.h"
 
+Shape::Shape(int TC)
+{
+
+    switch(TC)
+    {
+        case 0:  pen.setColor(white);
+        break;
+        case 1:  pen.setColor(black);
+        break;
+        case 2:  pen.setColor(red);
+        break;
+        case 3:  pen.setColor(green);
+        break;
+        case 4:  pen.setColor(blue);
+        break;
+        case 5:  pen.setColor(cyan);
+        break;
+        case 6:  pen.setColor(magenta);
+        break;
+        case 7:  pen.setColor(yellow);
+        break;
+        default: pen.setColor(gray);
+        break;
+    }
+}
+
 Shape::Shape(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS)
 {
     switch(PS)
@@ -116,13 +142,9 @@ void Shape::setBrush(Qt::GlobalColor gc, Qt::BrushStyle bs)
 
 void Shape::setPen(Qt::GlobalColor gc)
 {
-    pen=QPen(gc);
+    pen.setColor(gc);
 }
 
-void Shape::setPen(Qt::GlobalColor gc, int width, Qt::PenStyle ps, Qt::PenCapStyle pcs, Qt::PenJoinStyle pjs)
-{
-    pen=QPen(gc, width, ps, pcs, pjs);
-}
 
 void Shape::setDefaultStyle()
 {

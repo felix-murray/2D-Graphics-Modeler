@@ -1,9 +1,10 @@
 #include "line.h"
 
-Line::Line(QPaintDevice *device, int id)
-     : Shape(device, id, Shape::LineObj), line_begin(1,1), line_end(1,1)
+Line::Line(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, QPoint P1, QPoint P2)
+     : Shape(PS, PW, PC, PCS, PJS, BC, BS)
 {
-    setShape(LineObj);
+    line_begin = P1;
+    line_end = P2;
 }
 
 void Line::move(const int tX, const int tY, int ptIndex)
@@ -26,4 +27,14 @@ void Line::draw(QPaintDevice *device)
     painter.setBrush(getBrush());
     painter.drawLine(line_begin, line_end);
     painter.end();
+}
+
+double Line::perimeter()
+{
+    return 0;
+}
+
+double Line::area()
+{
+    return 0;
 }
