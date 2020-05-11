@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SignIn</class>
- <widget class="QWidget" name="SignIn">
+ <class>signin</class>
+ <widget class="QDialog" name="signin">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <widget class="QGroupBox" name="groupBox_signin">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>40</y>
+     <x>200</x>
+     <y>110</y>
      <width>227</width>
      <height>211</height>
     </rect>
@@ -63,6 +63,51 @@
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="Leftcolor_7">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>611</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(221, 221, 221);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>50</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </widget>
+  <zorder>Leftcolor_7</zorder>
+  <zorder>groupBox_signin</zorder>
+  <zorder>label</zorder>
  </widget>
  <resources/>
  <connections/>

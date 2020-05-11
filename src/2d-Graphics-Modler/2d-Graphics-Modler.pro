@@ -17,6 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     RenderArea.cpp \
+    contact_us.cpp \
+    customertest.cpp \
     ellipse.cpp \
     line.cpp \
     main.cpp \
@@ -31,6 +33,8 @@ SOURCES += \
 
 HEADERS += \
     RenderArea.h \
+    contact_us.h \
+    customertest.h \
     ellipse.h \
     line.h \
     mainwindow.h \
@@ -44,6 +48,8 @@ HEADERS += \
     text.h
 
 FORMS += \
+    contact_us.ui \
+    customertest.ui \
     mainwindow.ui \
     signin.ui
 

@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "RenderArea.h"
-#include "rectangle.h"
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -401,4 +399,42 @@ void MainWindow::on_select_button_clicked()
     ui->menustack->addWidget(ui->selection_page);
     ui->menustack->setCurrentWidget(ui->selection_page);
 }
+
+void MainWindow::on_contact_us_button_clicked()
+{
+    contact_us contactUs;
+    contactUs.setModal(true);
+    contactUs.exec();
+}
+void MainWindow::on_login_button_clicked()
+{
+    signin loginScreen;
+    loginScreen.setModal(true);
+    loginScreen.exec();
+}
+
+void MainWindow::on_cm_button_clicked()
+{
+    customertest CMT;
+    CMT.setModal(true);
+    CMT.exec();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

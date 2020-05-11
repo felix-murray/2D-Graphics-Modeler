@@ -107,3 +107,9 @@ void Shape_Parser::parseInput(Shape_Vector<Shape*> &parsedInput)
     }while(tmp != "--END-FILE--");
     inputFile.close();
 }
+
+
+void Shape_Parser::setDefaults()
+{
+
+}
