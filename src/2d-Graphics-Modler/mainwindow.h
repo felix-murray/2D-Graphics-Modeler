@@ -19,6 +19,7 @@
 #include "contact_us.h"
 #include "signin.h"
 #include "customertest.h"
+#include "parser.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -71,21 +72,14 @@ private slots:
     void on_canceltext_button_clicked();
 
     void on_select_button_clicked();
-
     void on_contact_us_button_clicked();
-
     void on_login_button_clicked();
-
     void on_cm_button_clicked();
-
-
-
-
 private:
     Ui::MainWindow *ui;
 
         RenderArea *renderArea;
-
+        Shape_Parser *parser;
         //Shape_Vector<Shape> shapeList;
 
         QComboBox *shapeComboBox;
@@ -93,9 +87,6 @@ private:
         QComboBox *penCapComboBox;
         QComboBox *penJoinComboBox;
         QComboBox *brushStyleComboBox;
-
-
-    int              The_penWidth{4};
 
 
 };

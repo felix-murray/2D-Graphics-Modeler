@@ -4,65 +4,60 @@
 
 #include "shape.h"
 #include "shape_Vector.h"
+#include "RenderArea.h"
+#include "rectangle.h"
+#include "text.h"
+#include "line.h"
+#include "ellipse.h"
+#include "polyline.h"
+#include "polygon.h"
+#include <string>
 #include <fstream>
 #include <QString>
 #include <QDebug>
 #include <QFile>
-#include <iostream>
+
 
 
 class Shape_Parser
 {
 public:
-    void translate(int ShapeId,
-                   std::string Dimensions,
-                   std::string ShapeType,
-                   std::string PenColor,
-                   int PenWidth,
-                   std::string PenStyle,
-                   std::string PenCapStyle,
-                   std::string PenJoinStyle,
-                   std::string BrushColor,
-                   std::string BrushStyle,
-                   std::string TextQstring,
-                   std::string TextColor,
-                   std::string TextAlignment,
-                   int TextPointSize,
-                   std::string TextFontFamily,
-                   std::string TextFontStyle,
-                   std::string TextFontWeight);
+    Shape_Parser();
+    ~Shape_Parser();
+    void translate(RenderArea *);
 
-    void parseInput(Shape_Vector<Shape*> &parsedInput);
+    void parseInput(RenderArea *);
 
 protected:
     const char DIVIDER = ' ';
 
 private:
-    Shape_Vector<std::string> dimensions;
+    int dimensions[10]; //////////////////////////can this be a vector of ints?//////
     std::string ShapeFileName;
-    std::ifstream inputFile;
+
     int ShapeId;
 
     std::string Dimensions;
     std::string ShapeType;
-    std::string PenColor;
+    int PenColor;
     int PenWidth;
-    std::string PenStyle;
-    std::string PenCapStyle;
-    std::string PenJoinStyle;
-    std::string BrushColor;
-    std::string BrushStyle;
-    std::string TextQstring;
-    std::string TextColor;
-    std::string TextAlignment;
+    int PenStyle;
+    int PenCapStyle;
+    int PenJoinStyle;
+    int BrushColor;
+    int BrushStyle;
+    QString TextQstring;
+    int TextColor;
+    int TextAlignment;
     int TextPointSize;
-    std::string TextFontFamily;
-    std::string TextFontStyle;
-    std::string TextFontWeight;
+    int TextFontFamily;
+    int TextFontStyle;
+    int TextFontWeight;
 
     void setDefaults();
     //void Shape_Parser();
     void saveInput(Shape_Vector<Shape*> &parsedInput);
+    void dimToQPoint();
 };
 
 #endif // Shape_Parser

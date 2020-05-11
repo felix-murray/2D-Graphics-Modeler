@@ -97,7 +97,7 @@ template <class T>
 Shape_Vector<T>::Shape_Vector()
 {
     size_v = 0;
-    elem    = nullptr;
+    elem   = nullptr;
     space  = 0;
 }
 
