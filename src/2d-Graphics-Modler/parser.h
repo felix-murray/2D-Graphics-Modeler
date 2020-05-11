@@ -14,39 +14,54 @@
 class Shape_Parser
 {
 public:
-    Shape_Parser();
-    Shape_Parser(QString);
-    ~Shape_Parser(){inputFile.close();}
+    void translate(int ShapeId,
+                   std::string Dimensions,
+                   std::string ShapeType,
+                   std::string PenColor,
+                   int PenWidth,
+                   std::string PenStyle,
+                   std::string PenCapStyle,
+                   std::string PenJoinStyle,
+                   std::string BrushColor,
+                   std::string BrushStyle,
+                   std::string TextQstring,
+                   std::string TextColor,
+                   std::string TextAlignment,
+                   int TextPointSize,
+                   std::string TextFontFamily,
+                   std::string TextFontStyle,
+                   std::string TextFontWeight);
 
-    void set_file(QString);
     void parseInput(Shape_Vector<Shape*> &parsedInput);
 
+protected:
+    const char DIVIDER = ' ';
+
 private:
-    Shape_Vector<QString> dimensions;
-    QString ShapeFileName;
-    QFile   inputFile;
+    Shape_Vector<std::string> dimensions;
+    std::string ShapeFileName;
+    std::ifstream inputFile;
     int ShapeId;
-    QString Dimensions;
-    QString ShapeType;
-    QString PenColor;
+
+    std::string Dimensions;
+    std::string ShapeType;
+    std::string PenColor;
     int PenWidth;
-    QString PenStyle;
-    QString PenCapStyle;
-    QString PenJoinStyle;
-    QString BrushColor;
-    QString BrushStyle;
-    QString TextQString;
-    QString TextColor;
-    QString TextAlignment;
+    std::string PenStyle;
+    std::string PenCapStyle;
+    std::string PenJoinStyle;
+    std::string BrushColor;
+    std::string BrushStyle;
+    std::string TextQstring;
+    std::string TextColor;
+    std::string TextAlignment;
     int TextPointSize;
-    QString TextFontFamily;
-    QString TextFontStyle;
-    QString TextFontWeight;
+    std::string TextFontFamily;
+    std::string TextFontStyle;
+    std::string TextFontWeight;
 
     void setDefaults();
-    void fileOpen();
-    void fileClose();
-    void Shape_ParserQString();
+    //void Shape_Parser();
     void saveInput(Shape_Vector<Shape*> &parsedInput);
 };
 
