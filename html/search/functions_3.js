@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['draw_678',['draw',['../class_ellipse.html#ae83718bf96925955fa48c14a4217c73c',1,'Ellipse::draw()'],['../class_line.html#ae4dfe9ac15ee0afe1a1434bbb2a40305',1,'Line::draw()'],['../class_polygon.html#abd8cbf05ed72150223f81ce30252dc7c',1,'Polygon::draw()'],['../class_polyline.html#adbe8409b47f09cdaf8daebb217799d61',1,'Polyline::draw()'],['../class_rectangle.html#aa7b84289ee0e504fd5dee6fe5aa7f425',1,'Rectangle::draw()'],['../class_shape.html#ad2ab549a1b0cc0e23af8be1fd1b61a1b',1,'Shape::draw()'],['../class_text.html#a2401b42a363c41b8be6219eb1b14d08f',1,'Text::draw()']]]
+  ['move_82',['move',['../class_ellipse.html#a1929dda25f9dc816835e05c57937d34a',1,'Ellipse::move()'],['../class_line.html#afa26eba3974d5ec900dcad57688de81c',1,'Line::move()'],['../class_polygon.html#a3c8153756efbc4d3c5d8247290ee04f3',1,'Polygon::move()'],['../class_polyline.html#a33cd81f76e084f77ffcd9304c879354e',1,'Polyline::move()'],['../class_rectangle.html#ad720387f2ebf2d8262768cb7e24c435b',1,'Rectangle::move()'],['../class_shape.html#a937ef09c5e1c5c640fdef7caf62ba8f2',1,'Shape::move()'],['../class_text.html#ac4900852f15c5c50cb7f72c8665a7a5a',1,'Text::move()']]]
 ];

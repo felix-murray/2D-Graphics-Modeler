@@ -70,7 +70,7 @@ $(function() {
 <div class="title">line.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="line_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LINE_H</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LINE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LINE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8h.html">shape.h</a>&quot;</span></div>
@@ -81,36 +81,32 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_line.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_line.html">Line</a> : <span class="keyword">public</span> <a class="code" href="class_shape.html">Shape</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_line.html#a3a7a89d259e4edbefb2c78203dd16766">Line</a>(QPaintDevice *device, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_line.html#aabe85f48d22d92b62257091f48174fac">   13</a></span>&#160;    <a class="code" href="class_line.html#aabe85f48d22d92b62257091f48174fac">~Line</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_line.html#a2512c108a40b6e9578b1063dc612ab72">   15</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_line.html#a2512c108a40b6e9578b1063dc612ab72">setPoints</a>(QPoint &amp;x, QPoint &amp;y) {<a class="code" href="class_line.html#adf45be228a08d4a79d2f340e08b992f6">line_begin</a> = x; <a class="code" href="class_line.html#a7240be2f55578d739b90f5eaf31b4bf7">line_end</a> = y;};</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_line.html#afa26eba3974d5ec900dcad57688de81c">move</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> tX, <span class="keyword">const</span> <span class="keywordtype">int</span> tY, <span class="keywordtype">int</span> ptIndex) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_line.html#ae4dfe9ac15ee0afe1a1434bbb2a40305">draw</a>(QPaintDevice *device) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_line.html#a0de33946966d0b89d948a5b67a798ba3">   19</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_line.html#a0de33946966d0b89d948a5b67a798ba3">perimeter</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_line.html#aac7a6d587ae23a835a524ba4d0d283fa">   20</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_line.html#aac7a6d587ae23a835a524ba4d0d283fa">area</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_line.html#adf45be228a08d4a79d2f340e08b992f6">   23</a></span>&#160;    QPoint <a class="code" href="class_line.html#adf45be228a08d4a79d2f340e08b992f6">line_begin</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_line.html#a7240be2f55578d739b90f5eaf31b4bf7">   24</a></span>&#160;    QPoint <a class="code" href="class_line.html#a7240be2f55578d739b90f5eaf31b4bf7">line_end</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_line.html">Line</a>(QPaintDevice *device, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_line.html">Line</a>(<span class="keywordtype">int</span> PS, <span class="keywordtype">int</span> PW, <span class="keywordtype">int</span> PC, <span class="keywordtype">int</span> PCS, <span class="keywordtype">int</span> PJS, <span class="keywordtype">int</span> BC, <span class="keywordtype">int</span> BS, QPoint P1, QPoint P2);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_line.html">Line</a>() {};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> setPoints(QPoint &amp;x, QPoint &amp;y) {line_begin = x; line_end = y;};</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_line.html#afa26eba3974d5ec900dcad57688de81c">move</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> tX, <span class="keyword">const</span> <span class="keywordtype">int</span> tY, <span class="keywordtype">int</span> ptIndex) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_line.html#ae4dfe9ac15ee0afe1a1434bbb2a40305">draw</a>(QPaintDevice *device) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_line.html#a0de33946966d0b89d948a5b67a798ba3">perimeter</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_line.html#aac7a6d587ae23a835a524ba4d0d283fa">area</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QPoint line_begin;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    QPoint line_end;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // LINE_H</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // LINE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="ashape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div><div class="ttdoc">a brief description of a file</div></div>
-<div class="ttc" id="aclass_line_html_afa26eba3974d5ec900dcad57688de81c"><div class="ttname"><a href="class_line.html#afa26eba3974d5ec900dcad57688de81c">Line::move</a></div><div class="ttdeci">void move(const int tX, const int tY, int ptIndex) override</div><div class="ttdoc">Pure Virtual function to move a Shape object. Used as a default in base class.</div><div class="ttdef"><b>Definition:</b> line.cpp:8</div></div>
-<div class="ttc" id="aclass_line_html_aac7a6d587ae23a835a524ba4d0d283fa"><div class="ttname"><a href="class_line.html#aac7a6d587ae23a835a524ba4d0d283fa">Line::area</a></div><div class="ttdeci">double area() override</div><div class="ttdoc">Pure Virtual function to calculate area of a Shape object.</div></div>
-<div class="ttc" id="aclass_line_html_aabe85f48d22d92b62257091f48174fac"><div class="ttname"><a href="class_line.html#aabe85f48d22d92b62257091f48174fac">Line::~Line</a></div><div class="ttdeci">~Line()</div></div>
-<div class="ttc" id="aclass_line_html_adf45be228a08d4a79d2f340e08b992f6"><div class="ttname"><a href="class_line.html#adf45be228a08d4a79d2f340e08b992f6">Line::line_begin</a></div><div class="ttdeci">QPoint line_begin</div><div class="ttdef"><b>Definition:</b> line.h:23</div></div>
-<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.h:22</div></div>
-<div class="ttc" id="aclass_line_html_a2512c108a40b6e9578b1063dc612ab72"><div class="ttname"><a href="class_line.html#a2512c108a40b6e9578b1063dc612ab72">Line::setPoints</a></div><div class="ttdeci">void setPoints(QPoint &amp;x, QPoint &amp;y)</div><div class="ttdef"><b>Definition:</b> line.h:15</div></div>
-<div class="ttc" id="aclass_line_html_a3a7a89d259e4edbefb2c78203dd16766"><div class="ttname"><a href="class_line.html#a3a7a89d259e4edbefb2c78203dd16766">Line::Line</a></div><div class="ttdeci">Line(QPaintDevice *device, int id)</div><div class="ttdef"><b>Definition:</b> line.cpp:3</div></div>
+<div class="ttc" id="aclass_line_html_afa26eba3974d5ec900dcad57688de81c"><div class="ttname"><a href="class_line.html#afa26eba3974d5ec900dcad57688de81c">Line::move</a></div><div class="ttdeci">void move(const int tX, const int tY, int ptIndex) override</div><div class="ttdoc">Pure Virtual function to move a Shape object. Used as a default in base class.</div><div class="ttdef"><b>Definition:</b> line.cpp:10</div></div>
+<div class="ttc" id="aclass_line_html_aac7a6d587ae23a835a524ba4d0d283fa"><div class="ttname"><a href="class_line.html#aac7a6d587ae23a835a524ba4d0d283fa">Line::area</a></div><div class="ttdeci">double area() override</div><div class="ttdoc">Pure Virtual function to calculate area of a Shape object.</div><div class="ttdef"><b>Definition:</b> line.cpp:37</div></div>
+<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.h:23</div></div>
 <div class="ttc" id="aclass_line_html"><div class="ttname"><a href="class_line.html">Line</a></div><div class="ttdef"><b>Definition:</b> line.h:10</div></div>
-<div class="ttc" id="aclass_line_html_ae4dfe9ac15ee0afe1a1434bbb2a40305"><div class="ttname"><a href="class_line.html#ae4dfe9ac15ee0afe1a1434bbb2a40305">Line::draw</a></div><div class="ttdeci">void draw(QPaintDevice *device) override</div><div class="ttdoc">Pure Virtual function to draw a Shape object.</div><div class="ttdef"><b>Definition:</b> line.cpp:21</div></div>
-<div class="ttc" id="aclass_line_html_a0de33946966d0b89d948a5b67a798ba3"><div class="ttname"><a href="class_line.html#a0de33946966d0b89d948a5b67a798ba3">Line::perimeter</a></div><div class="ttdeci">double perimeter() override</div><div class="ttdoc">Pure Virtual function to calculate perimeter of a Shape object.</div></div>
-<div class="ttc" id="aclass_line_html_a7240be2f55578d739b90f5eaf31b4bf7"><div class="ttname"><a href="class_line.html#a7240be2f55578d739b90f5eaf31b4bf7">Line::line_end</a></div><div class="ttdeci">QPoint line_end</div><div class="ttdef"><b>Definition:</b> line.h:24</div></div>
+<div class="ttc" id="aclass_line_html_ae4dfe9ac15ee0afe1a1434bbb2a40305"><div class="ttname"><a href="class_line.html#ae4dfe9ac15ee0afe1a1434bbb2a40305">Line::draw</a></div><div class="ttdeci">void draw(QPaintDevice *device) override</div><div class="ttdoc">Pure Virtual function to draw a Shape object.</div><div class="ttdef"><b>Definition:</b> line.cpp:23</div></div>
+<div class="ttc" id="aclass_line_html_a0de33946966d0b89d948a5b67a798ba3"><div class="ttname"><a href="class_line.html#a0de33946966d0b89d948a5b67a798ba3">Line::perimeter</a></div><div class="ttdeci">double perimeter() override</div><div class="ttdoc">Pure Virtual function to calculate perimeter of a Shape object.</div><div class="ttdef"><b>Definition:</b> line.cpp:32</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
