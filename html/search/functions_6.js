@@ -1,18 +1,12 @@
 var searchData=
 [
-  ['getbrush_684',['getBrush',['../class_shape.html#ad1f6a83ca898073ae6237cd9560a5666',1,'Shape']]],
-  ['getflag_685',['getFlag',['../class_text.html#abc42bd7502e8441a041f50695880bc8c',1,'Text']]],
-  ['getfont_686',['getFont',['../class_text.html#a59ca98b8967dd98605745c2911ccc3bd',1,'Text']]],
-  ['getheight_687',['getHeight',['../class_ellipse.html#acd5005522d00f0e3235a2d4d931c0e39',1,'Ellipse::getHeight()'],['../class_rectangle.html#a78c23ebff32769d54b568536d76af7f8',1,'Rectangle::getHeight()']]],
-  ['getid_688',['getID',['../class_shape.html#ab01fdb3c77e8dafc6febdeb5b7664430',1,'Shape']]],
-  ['getlocation_689',['getLocation',['../class_ellipse.html#abc0c0a4a53719a365fa26e4deb1a7ec8',1,'Ellipse::getLocation()'],['../class_rectangle.html#a3b624ce7e9708664d8ab322c265a5465',1,'Rectangle::getLocation()']]],
-  ['getnumpoints_690',['getNumPoints',['../class_polyline.html#a80b8c56a38d4dcf70ac9f3bd314aec2b',1,'Polyline']]],
-  ['getnumvertices_691',['getNumVertices',['../class_polygon.html#aa6d995a98571c2124c8f3eee1d1b3ca9',1,'Polygon']]],
-  ['getpen_692',['getPen',['../class_shape.html#a02fd70d52259c315a71b102d0c76f25d',1,'Shape']]],
-  ['getpoints_693',['getPoints',['../class_polyline.html#ac7ebf3042d8f782e1328e78f218ba999',1,'Polyline']]],
-  ['getqpainter_694',['getQPainter',['../class_shape.html#ac83754d9a36ce0b6dd8badc7af4ca4b7',1,'Shape']]],
-  ['getshape_695',['getShape',['../class_shape.html#ab33fe28f566590705d221782b421ef7f',1,'Shape']]],
-  ['gettext_696',['getText',['../class_text.html#a0315e3d6a80d496496838330e018e7e8',1,'Text']]],
-  ['getvertices_697',['getVertices',['../class_polygon.html#a2e70cb55234e249275041c6a6ea531c1',1,'Polygon']]],
-  ['getwidth_698',['getWidth',['../class_ellipse.html#a79b45a55a6dc182866659c00535bba5e',1,'Ellipse::getWidth()'],['../class_rectangle.html#a9911b718370d9f9c987c1c5f85379b09',1,'Rectangle::getWidth()']]]
+  ['setall_85',['setAll',['../class_rectangle.html#a583a73ee34b4ce7b60459922dbb2094d',1,'Rectangle']]],
+  ['setbrush_86',['setBrush',['../class_shape.html#a38ea14b2f59f9a48be396c8596fc2332',1,'Shape']]],
+  ['setdimensions_87',['setDimensions',['../class_rectangle.html#a10a5a88119f55914c1d9d68a7678d457',1,'Rectangle']]],
+  ['setid_88',['setID',['../class_shape.html#ab5f7a5775837a4c4d4187d901990c1c2',1,'Shape']]],
+  ['setlocation_89',['setLocation',['../class_rectangle.html#a6d2dd7280e01d1d3a044a852d0b42619',1,'Rectangle::setLocation(int x, int y)'],['../class_rectangle.html#a3e38c916a6685543e8a2196f25d6ebdc',1,'Rectangle::setLocation(QPoint pt)']]],
+  ['setpen_90',['setPen',['../class_shape.html#aab10489c94b3d5be22844531b768345d',1,'Shape']]],
+  ['setshape_91',['setShape',['../class_shape.html#a359ce0744a76ea45e4c949678442eeb3',1,'Shape']]],
+  ['shape_92',['Shape',['../class_shape.html#aaa8d87171e65e0d8ba3c5459978992a7',1,'Shape']]],
+  ['size_93',['size',['../class_shape___vector.html#a9689c121f33ded6a8a5af57fcfb242f3',1,'Shape_Vector']]]
 ];

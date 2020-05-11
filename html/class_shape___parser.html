@@ -62,10 +62,108 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_shape___parser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Shape_Parser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa487a967672507ad3f88d7f69b33e767"><td class="memItemLeft" align="right" valign="top"><a id="aa487a967672507ad3f88d7f69b33e767"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>translate</b> (int ShapeId, std::string Dimensions, std::string ShapeType, std::string PenColor, int PenWidth, std::string PenStyle, std::string PenCapStyle, std::string PenJoinStyle, std::string BrushColor, std::string BrushStyle, std::string TextQstring, std::string TextColor, std::string TextAlignment, int TextPointSize, std::string TextFontFamily, std::string TextFontStyle, std::string TextFontWeight)</td></tr>
+<tr class="separator:aa487a967672507ad3f88d7f69b33e767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e12e59a4c3cf2564610f7e6383ee525"><td class="memItemLeft" align="right" valign="top"><a id="a8e12e59a4c3cf2564610f7e6383ee525"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parseInput</b> (<a class="el" href="class_shape___vector.html">Shape_Vector</a>&lt; <a class="el" href="class_shape.html">Shape</a> * &gt; &amp;parsedInput)</td></tr>
+<tr class="separator:a8e12e59a4c3cf2564610f7e6383ee525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a7f4965caa329b78f57ad476e6fa93f6f"><td class="memItemLeft" align="right" valign="top"><a id="a7f4965caa329b78f57ad476e6fa93f6f"></a>
+const char&#160;</td><td class="memItemRight" valign="bottom"><b>DIVIDER</b> = ' '</td></tr>
+<tr class="separator:a7f4965caa329b78f57ad476e6fa93f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a544703d591bee5574ec8b7f92a6544fa"><td class="memItemLeft" align="right" valign="top"><a id="a544703d591bee5574ec8b7f92a6544fa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDefaults</b> ()</td></tr>
+<tr class="separator:a544703d591bee5574ec8b7f92a6544fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4678ab45bec0726ac0c8323f5c21bd"><td class="memItemLeft" align="right" valign="top"><a id="a6c4678ab45bec0726ac0c8323f5c21bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>saveInput</b> (<a class="el" href="class_shape___vector.html">Shape_Vector</a>&lt; <a class="el" href="class_shape.html">Shape</a> * &gt; &amp;parsedInput)</td></tr>
+<tr class="separator:a6c4678ab45bec0726ac0c8323f5c21bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a60800f46bbc4ff8d5941289b8c8f546c"><td class="memItemLeft" align="right" valign="top"><a id="a60800f46bbc4ff8d5941289b8c8f546c"></a>
+<a class="el" href="class_shape___vector.html">Shape_Vector</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dimensions</b></td></tr>
+<tr class="separator:a60800f46bbc4ff8d5941289b8c8f546c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ef61473d7b8ac061c8eeae2b5a7c918"><td class="memItemLeft" align="right" valign="top"><a id="a9ef61473d7b8ac061c8eeae2b5a7c918"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ShapeFileName</b></td></tr>
+<tr class="separator:a9ef61473d7b8ac061c8eeae2b5a7c918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad751bef0258f146cd6f4d4b7fc8dbef0"><td class="memItemLeft" align="right" valign="top"><a id="ad751bef0258f146cd6f4d4b7fc8dbef0"></a>
+std::ifstream&#160;</td><td class="memItemRight" valign="bottom"><b>inputFile</b></td></tr>
+<tr class="separator:ad751bef0258f146cd6f4d4b7fc8dbef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a490cd08b4b2b48d8ec4f9ccb4f209060"><td class="memItemLeft" align="right" valign="top"><a id="a490cd08b4b2b48d8ec4f9ccb4f209060"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ShapeId</b></td></tr>
+<tr class="separator:a490cd08b4b2b48d8ec4f9ccb4f209060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a307c9905d5b624a8d276625a3efb91fe"><td class="memItemLeft" align="right" valign="top"><a id="a307c9905d5b624a8d276625a3efb91fe"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>Dimensions</b></td></tr>
+<tr class="separator:a307c9905d5b624a8d276625a3efb91fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af34bfb12b46cb5b9ed49f138c7a13bdc"><td class="memItemLeft" align="right" valign="top"><a id="af34bfb12b46cb5b9ed49f138c7a13bdc"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ShapeType</b></td></tr>
+<tr class="separator:af34bfb12b46cb5b9ed49f138c7a13bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae438007e7ea2cfde3c5c5f414af71403"><td class="memItemLeft" align="right" valign="top"><a id="ae438007e7ea2cfde3c5c5f414af71403"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>PenColor</b></td></tr>
+<tr class="separator:ae438007e7ea2cfde3c5c5f414af71403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a2d55e944b0bd1cc739cb720c1fa4e"><td class="memItemLeft" align="right" valign="top"><a id="a80a2d55e944b0bd1cc739cb720c1fa4e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PenWidth</b></td></tr>
+<tr class="separator:a80a2d55e944b0bd1cc739cb720c1fa4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c342e0316dd8726d66d256e52765487"><td class="memItemLeft" align="right" valign="top"><a id="a3c342e0316dd8726d66d256e52765487"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>PenStyle</b></td></tr>
+<tr class="separator:a3c342e0316dd8726d66d256e52765487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cf5a958738708e87e42d4ad8cc9ba82"><td class="memItemLeft" align="right" valign="top"><a id="a7cf5a958738708e87e42d4ad8cc9ba82"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>PenCapStyle</b></td></tr>
+<tr class="separator:a7cf5a958738708e87e42d4ad8cc9ba82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a36b329a02cac48a3251c2d57dbf379"><td class="memItemLeft" align="right" valign="top"><a id="a7a36b329a02cac48a3251c2d57dbf379"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>PenJoinStyle</b></td></tr>
+<tr class="separator:a7a36b329a02cac48a3251c2d57dbf379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac75bba2b102ad7bc0839338b1e62a525"><td class="memItemLeft" align="right" valign="top"><a id="ac75bba2b102ad7bc0839338b1e62a525"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>BrushColor</b></td></tr>
+<tr class="separator:ac75bba2b102ad7bc0839338b1e62a525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9be9c4d00afe94d6e8e0b5103660afc"><td class="memItemLeft" align="right" valign="top"><a id="aa9be9c4d00afe94d6e8e0b5103660afc"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>BrushStyle</b></td></tr>
+<tr class="separator:aa9be9c4d00afe94d6e8e0b5103660afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6719be2d7c463f884974be38553d2040"><td class="memItemLeft" align="right" valign="top"><a id="a6719be2d7c463f884974be38553d2040"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TextQstring</b></td></tr>
+<tr class="separator:a6719be2d7c463f884974be38553d2040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a70a69601798115c9b462ea32eb52e1"><td class="memItemLeft" align="right" valign="top"><a id="a2a70a69601798115c9b462ea32eb52e1"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TextColor</b></td></tr>
+<tr class="separator:a2a70a69601798115c9b462ea32eb52e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763c2751db9515c01f35ac003f9b71e6"><td class="memItemLeft" align="right" valign="top"><a id="a763c2751db9515c01f35ac003f9b71e6"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TextAlignment</b></td></tr>
+<tr class="separator:a763c2751db9515c01f35ac003f9b71e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a396aed039d9c024cea58bfdf7bb47129"><td class="memItemLeft" align="right" valign="top"><a id="a396aed039d9c024cea58bfdf7bb47129"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>TextPointSize</b></td></tr>
+<tr class="separator:a396aed039d9c024cea58bfdf7bb47129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9ca04797162a98a2de44827fdba146"><td class="memItemLeft" align="right" valign="top"><a id="a8c9ca04797162a98a2de44827fdba146"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TextFontFamily</b></td></tr>
+<tr class="separator:a8c9ca04797162a98a2de44827fdba146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba75862cbc54344604202fe5ba30cf2"><td class="memItemLeft" align="right" valign="top"><a id="adba75862cbc54344604202fe5ba30cf2"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TextFontStyle</b></td></tr>
+<tr class="separator:adba75862cbc54344604202fe5ba30cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd05b27c83ad8c0c9d57f3bbefc55d5"><td class="memItemLeft" align="right" valign="top"><a id="afcd05b27c83ad8c0c9d57f3bbefc55d5"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TextFontWeight</b></td></tr>
+<tr class="separator:afcd05b27c83ad8c0c9d57f3bbefc55d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/2d-Graphics-Modler/<a class="el" href="parser_8h_source.html">parser.h</a></li>
+<li>src/2d-Graphics-Modler/parser.cpp</li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mainwindow_614',['MainWindow',['../class_ui_1_1_main_window.html',1,'Ui::MainWindow'],['../class_main_window.html',1,'MainWindow']]]
+  ['polygon_58',['Polygon',['../class_polygon.html',1,'']]],
+  ['polyline_59',['Polyline',['../class_polyline.html',1,'']]]
 ];

@@ -70,7 +70,7 @@ $(function() {
 <div class="title">ellipse.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ellipse_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ELLIPSE_H</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ELLIPSE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ELLIPSE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8h.html">shape.h</a>&quot;</span></div>
@@ -78,51 +78,53 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QPaintDevice&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QPainter&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_ellipse.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ellipse.html">Ellipse</a> : <span class="keyword">public</span> <a class="code" href="class_shape.html">Shape</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_ellipse.html#af31f4f441414671f76c60b03516eb5d6">Ellipse</a>(QPaintDevice* device = <span class="keyword">nullptr</span>, <span class="keywordtype">int</span> <span class="keywordtype">id</span> = -1);</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_ellipse.html#af7b546b29a2f8ce3494f9d02143a621c">   13</a></span>&#160;    <a class="code" href="class_ellipse.html#af7b546b29a2f8ce3494f9d02143a621c">~Ellipse</a>()<span class="keyword"> override </span>{}</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ellipse.html#a1929dda25f9dc816835e05c57937d34a">move</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> na) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ellipse.html#ae83718bf96925955fa48c14a4217c73c">draw</a>(QPaintDevice* device) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// Class Definition for Class Ellipse</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_ellipse.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ellipse.html">Ellipse</a> : <span class="keyword">public</span> <a class="code" href="class_shape.html">Shape</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Constructor using QPaintDevice</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_ellipse.html">Ellipse</a>(QPaintDevice* device = <span class="keyword">nullptr</span>, <span class="keywordtype">int</span> <span class="keywordtype">id</span> = -1);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_ellipse.html">Ellipse</a>(<span class="keywordtype">int</span> PS, <span class="keywordtype">int</span> PW, <span class="keywordtype">int</span> PC, <span class="keywordtype">int</span> PCS, <span class="keywordtype">int</span> PJS, <span class="keywordtype">int</span> BC, <span class="keywordtype">int</span> BS, <span class="keywordtype">int</span> X , <span class="keywordtype">int</span> Y, <span class="keywordtype">int</span> W, <span class="keywordtype">int</span> H);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#abdcc9bf2ca75e53000eecd7fce16d1ea">area</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#abb2c4bca7f3c88c16a81f6ecb9d93e5c">perimeter</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#a79b45a55a6dc182866659c00535bba5e">getWidth</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#acd5005522d00f0e3235a2d4d931c0e39">getHeight</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    QPoint&amp; <a class="code" href="class_ellipse.html#abc0c0a4a53719a365fa26e4deb1a7ec8">getLocation</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ellipse.html#af3e06272b3d22f3249ff04288df1f6dd">setDimensions</a>(<span class="keywordtype">double</span> w, <span class="keywordtype">double</span> h);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ellipse.html#aa24fd99eedbfc4b45c2b2c2a11cd5759">setLocation</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ellipse.html#aa24fd99eedbfc4b45c2b2c2a11cd5759">setLocation</a>(QPoint pt);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_ellipse.html#a4f2fb4b634a1c37666a0f8419c4f6d39">   30</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#a4f2fb4b634a1c37666a0f8419c4f6d39">width</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_ellipse.html#a549345caaff869f7eef31c800e37dd38">   31</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#a549345caaff869f7eef31c800e37dd38">height</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_ellipse.html#a5cbc416d859cfd95f31855e98065b829">   32</a></span>&#160;    QPoint <a class="code" href="class_ellipse.html#a5cbc416d859cfd95f31855e98065b829">location</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Default destructor</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    ~<a class="code" href="class_ellipse.html">Ellipse</a>()<span class="keyword"> override </span>{}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_ellipse.html">Ellipse</a>(<span class="keywordtype">int</span> num, QColor PC);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Class functions</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ellipse.html#a1929dda25f9dc816835e05c57937d34a">move</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> na) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ellipse.html#ae83718bf96925955fa48c14a4217c73c">draw</a>(QPaintDevice* device) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Functions to calculate area and perimeter</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#abdcc9bf2ca75e53000eecd7fce16d1ea">area</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_ellipse.html#abb2c4bca7f3c88c16a81f6ecb9d93e5c">perimeter</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Getter Functions</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> getWidth();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">double</span> getHeight();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QPoint&amp; getLocation();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif // ELLIPSE_H</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Setter Functions</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> setDimensions(<span class="keywordtype">double</span> w, <span class="keywordtype">double</span> h);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setLocation(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> setLocation(QPoint pt);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Class Vars</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">double</span> width;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">double</span> height;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QPoint location;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // ELLIPSE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="ashape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div><div class="ttdoc">a brief description of a file</div></div>
-<div class="ttc" id="aclass_ellipse_html_acd5005522d00f0e3235a2d4d931c0e39"><div class="ttname"><a href="class_ellipse.html#acd5005522d00f0e3235a2d4d931c0e39">Ellipse::getHeight</a></div><div class="ttdeci">double getHeight()</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:44</div></div>
-<div class="ttc" id="aclass_ellipse_html_af7b546b29a2f8ce3494f9d02143a621c"><div class="ttname"><a href="class_ellipse.html#af7b546b29a2f8ce3494f9d02143a621c">Ellipse::~Ellipse</a></div><div class="ttdeci">~Ellipse() override</div><div class="ttdef"><b>Definition:</b> ellipse.h:13</div></div>
-<div class="ttc" id="aclass_ellipse_html_a549345caaff869f7eef31c800e37dd38"><div class="ttname"><a href="class_ellipse.html#a549345caaff869f7eef31c800e37dd38">Ellipse::height</a></div><div class="ttdeci">double height</div><div class="ttdef"><b>Definition:</b> ellipse.h:31</div></div>
-<div class="ttc" id="aclass_ellipse_html_aa24fd99eedbfc4b45c2b2c2a11cd5759"><div class="ttname"><a href="class_ellipse.html#aa24fd99eedbfc4b45c2b2c2a11cd5759">Ellipse::setLocation</a></div><div class="ttdeci">void setLocation(int x, int y)</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:67</div></div>
-<div class="ttc" id="aclass_ellipse_html_af31f4f441414671f76c60b03516eb5d6"><div class="ttname"><a href="class_ellipse.html#af31f4f441414671f76c60b03516eb5d6">Ellipse::Ellipse</a></div><div class="ttdeci">Ellipse(QPaintDevice *device=nullptr, int id=-1)</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:6</div></div>
-<div class="ttc" id="aclass_ellipse_html_abc0c0a4a53719a365fa26e4deb1a7ec8"><div class="ttname"><a href="class_ellipse.html#abc0c0a4a53719a365fa26e4deb1a7ec8">Ellipse::getLocation</a></div><div class="ttdeci">QPoint &amp; getLocation()</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:49</div></div>
-<div class="ttc" id="aclass_ellipse_html_a5cbc416d859cfd95f31855e98065b829"><div class="ttname"><a href="class_ellipse.html#a5cbc416d859cfd95f31855e98065b829">Ellipse::location</a></div><div class="ttdeci">QPoint location</div><div class="ttdef"><b>Definition:</b> ellipse.h:32</div></div>
-<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.h:22</div></div>
-<div class="ttc" id="aclass_ellipse_html_a79b45a55a6dc182866659c00535bba5e"><div class="ttname"><a href="class_ellipse.html#a79b45a55a6dc182866659c00535bba5e">Ellipse::getWidth</a></div><div class="ttdeci">double getWidth()</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:39</div></div>
-<div class="ttc" id="aclass_ellipse_html_abb2c4bca7f3c88c16a81f6ecb9d93e5c"><div class="ttname"><a href="class_ellipse.html#abb2c4bca7f3c88c16a81f6ecb9d93e5c">Ellipse::perimeter</a></div><div class="ttdeci">double perimeter() override</div><div class="ttdoc">Pure Virtual function to calculate perimeter of a Shape object.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:34</div></div>
-<div class="ttc" id="aclass_ellipse_html_a1929dda25f9dc816835e05c57937d34a"><div class="ttname"><a href="class_ellipse.html#a1929dda25f9dc816835e05c57937d34a">Ellipse::move</a></div><div class="ttdeci">void move(int x, int y, int na) override</div><div class="ttdoc">Pure Virtual function to move a Shape object. Used as a default in base class.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:13</div></div>
-<div class="ttc" id="aclass_ellipse_html_abdcc9bf2ca75e53000eecd7fce16d1ea"><div class="ttname"><a href="class_ellipse.html#abdcc9bf2ca75e53000eecd7fce16d1ea">Ellipse::area</a></div><div class="ttdeci">double area() override</div><div class="ttdoc">Pure Virtual function to calculate area of a Shape object.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:29</div></div>
-<div class="ttc" id="aclass_ellipse_html_ae83718bf96925955fa48c14a4217c73c"><div class="ttname"><a href="class_ellipse.html#ae83718bf96925955fa48c14a4217c73c">Ellipse::draw</a></div><div class="ttdeci">void draw(QPaintDevice *device) override</div><div class="ttdoc">Pure Virtual function to draw a Shape object.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:19</div></div>
-<div class="ttc" id="aclass_ellipse_html_af3e06272b3d22f3249ff04288df1f6dd"><div class="ttname"><a href="class_ellipse.html#af3e06272b3d22f3249ff04288df1f6dd">Ellipse::setDimensions</a></div><div class="ttdeci">void setDimensions(double w, double h)</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:54</div></div>
-<div class="ttc" id="aclass_ellipse_html_a4f2fb4b634a1c37666a0f8419c4f6d39"><div class="ttname"><a href="class_ellipse.html#a4f2fb4b634a1c37666a0f8419c4f6d39">Ellipse::width</a></div><div class="ttdeci">double width</div><div class="ttdef"><b>Definition:</b> ellipse.h:30</div></div>
-<div class="ttc" id="aclass_ellipse_html"><div class="ttname"><a href="class_ellipse.html">Ellipse</a></div><div class="ttdef"><b>Definition:</b> ellipse.h:10</div></div>
+<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.h:23</div></div>
+<div class="ttc" id="aclass_ellipse_html_abb2c4bca7f3c88c16a81f6ecb9d93e5c"><div class="ttname"><a href="class_ellipse.html#abb2c4bca7f3c88c16a81f6ecb9d93e5c">Ellipse::perimeter</a></div><div class="ttdeci">double perimeter() override</div><div class="ttdoc">Pure Virtual function to calculate perimeter of a Shape object.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:38</div></div>
+<div class="ttc" id="aclass_ellipse_html_a1929dda25f9dc816835e05c57937d34a"><div class="ttname"><a href="class_ellipse.html#a1929dda25f9dc816835e05c57937d34a">Ellipse::move</a></div><div class="ttdeci">void move(int x, int y, int na) override</div><div class="ttdoc">Pure Virtual function to move a Shape object. Used as a default in base class.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:17</div></div>
+<div class="ttc" id="aclass_ellipse_html_abdcc9bf2ca75e53000eecd7fce16d1ea"><div class="ttname"><a href="class_ellipse.html#abdcc9bf2ca75e53000eecd7fce16d1ea">Ellipse::area</a></div><div class="ttdeci">double area() override</div><div class="ttdoc">Pure Virtual function to calculate area of a Shape object.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:33</div></div>
+<div class="ttc" id="aclass_ellipse_html_ae83718bf96925955fa48c14a4217c73c"><div class="ttname"><a href="class_ellipse.html#ae83718bf96925955fa48c14a4217c73c">Ellipse::draw</a></div><div class="ttdeci">void draw(QPaintDevice *device) override</div><div class="ttdoc">Pure Virtual function to draw a Shape object.</div><div class="ttdef"><b>Definition:</b> ellipse.cpp:23</div></div>
+<div class="ttc" id="aclass_ellipse_html"><div class="ttname"><a href="class_ellipse.html">Ellipse</a></div><div class="ttdef"><b>Definition:</b> ellipse.h:11</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

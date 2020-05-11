@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['insert_699',['insert',['../class_shape___vector.html#a3da8e3a198c2f740ceeb56423eea27e2',1,'Shape_Vector::insert()'],['../classvector.html#a68904d50fd7569e14f759983485374bf',1,'vector::insert()']]]
+  ['_7erectangle_94',['~Rectangle',['../class_rectangle.html#a6e3ed18583022b35e04c109345d1e7d6',1,'Rectangle']]],
+  ['_7eshape_95',['~Shape',['../class_shape.html#ac3b9fc48965274893f25b18aa14ba665',1,'Shape']]]
 ];
