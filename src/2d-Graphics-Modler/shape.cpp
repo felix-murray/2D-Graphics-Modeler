@@ -153,7 +153,6 @@ void Shape::setPen(Qt::GlobalColor gc)
     pen.setColor(gc);
 }
 
-
 void Shape::setDefaultStyle()
 {
     pen=Qt::SolidLine;

@@ -179,7 +179,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->plinepenjoin_style_box->addItem("MiterJoin");
     ui->plinepenjoin_style_box->addItem("RoundJoin");
 
-
+    qDebug() << "Before Parser" << endl;
+//    parser = new Shape_Parser;
+//    parser->parseInput(*(ui->Canvas));
 }
 
 MainWindow::~MainWindow()
@@ -401,4 +403,3 @@ void MainWindow::on_select_button_clicked()
     ui->menustack->addWidget(ui->selection_page);
     ui->menustack->setCurrentWidget(ui->selection_page);
 }
-

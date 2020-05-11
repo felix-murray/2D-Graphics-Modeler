@@ -12,6 +12,8 @@ class Text : public Shape
 public:
      Text(QPaintDevice* dev = nullptr, int id = -1);
      Text(QString text, int TC, int font, int align, int style, int weight, int boxW, int boxH, QPoint Loc);
+     Text(QString T, std::string TC, std::string F, std::string align, std::string S, std::string W, int boxW, int boxH, QPoint Loc);
+
     ~Text() override {}
 
     void draw(QPaintDevice *dev) override;
