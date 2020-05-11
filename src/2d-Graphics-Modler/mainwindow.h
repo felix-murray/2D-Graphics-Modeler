@@ -6,14 +6,8 @@
 #include <QListView>
 #include <QObject>
 #include <QComboBox>
-#include "RenderArea.h"
-#include "rectangle.h"
-#include "text.h"
-#include "line.h"
-#include "ellipse.h"
-#include "RenderArea.h"
-#include "polyline.h"
-#include "polygon.h"
+#include "parser.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -67,12 +61,11 @@ private slots:
 
     void on_select_button_clicked();
 
-
 private:
     Ui::MainWindow *ui;
 
         RenderArea *renderArea;
-
+        Shape_Parser *parser;
         //Shape_Vector<Shape> shapeList;
 
         QComboBox *shapeComboBox;
