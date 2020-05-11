@@ -341,6 +341,10 @@ void Shape_Parser::parseInput(RenderArea *canvas)
 
     inputFile.close();
 }
+
+void Shape_Parser::setDefaults()
+{
+=======
 //void Shape_Parser::parseInput(RenderArea* canvas)
 //{
 //    inputFile.open("shapes.txt");
