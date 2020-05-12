@@ -18,21 +18,43 @@
 #include <QFile>
 
 
-
+//!  Class Shape_Parser
+/*!
+  Class to translate shapes.txt file(s) into shapes on screen.
+*/
 class Shape_Parser
 {
 public:
-    Shape_Parser();
-    ~Shape_Parser();
-    void translate(RenderArea &);
-    void parseInput(RenderArea &canvas);
-    void setFileName(QString fileName);
 
+    //! Default constructor.
+    /*!
+    */
+    Shape_Parser();
+
+    //! Destructor.
+    /*!
+    */
+    ~Shape_Parser();
+
+    //! Function to take parsed data and input it into shape constructors.
+    /*!
+    */
+    void translate(RenderArea &);
+
+    //! Function to Read in input from a file and parse it into renderable shapes.
+    /*!
+    */
+    void parseInput(RenderArea &canvas);
+
+    //! Function to set the name of the file to input from.
+    /*!
+     \param fileName Qstring to represent the name of the file.
+    */
+    void setFileName(QString fileName);
 
 private:
     int dimensions[10];
     int dimensions_count;
-
     QString ShapeFileName;
     int ShapeId;
     QString Dimensions;

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['painter_100',['painter',['../class_shape.html#a761a117dfc4b157944e512b8a4c89fde',1,'Shape']]],
-  ['pen_101',['pen',['../class_shape.html#a75d192b68eddd2622bdea8a4ac1058d1',1,'Shape']]]
+  ['numshapes_178',['numShapes',['../class_shape.html#a5270d7589601cf92e9dc84ff60198ac8',1,'Shape']]]
 ];
