@@ -1,0 +1,36 @@
+~Team Unicorn Team Member Role Breackdown~
+
+Felix Murray
+	- Scrum Master
+	- Doxygen (configuration)
+	- Git (managed repo, helped 
+	- Login UI
+
+Kevin Nguyen
+	- Elipse Shape 
+	- Doxygen (initial research)
+
+Benia Ean
+	- Rectangle Shape
+	- UML
+
+Nathan Tran
+	- Shape Vector Container
+	- Polygon Shape
+	- UML
+
+Breighton Kole
+	- Polyline Shape
+
+Lina Kang
+	- Text Shape
+	- Doxygen (code documentation)
+
+Hyojun Lee
+	- Line Shape
+	- UML
+
+Jared Blueweiss
+	- Various Bugfixes (code reviewer)
+	- Main Window UI and Canvas Drawing
+	

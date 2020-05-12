@@ -1,0 +1,26 @@
+#1 Customer Testimonials
+	In Progress, will be a part of MainWindowUI when completed (line numbers to be provided on Tuesday)
+
+#2 Contact Us
+	In Progress, logo complete but Contact Button still needs to be added to MainWindowUI (line numbers to be provided on Tuesday)
+
+#3 Display Graphic Objects
+	In Progress, displaying of shapes almost complete. (line numbers to be provided on Tuesday)
+
+#4 Shape Parser
+	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
+
+#5 Ability to Move Shapes
+	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
+
+#6 Ability to Add and Remove Shapes
+	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
+
+#7 (Cancelled)
+
+#8 (Cancelled)
+
+#9 (Cancelled)
+
+#10 Save all changes between executions 
+	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
