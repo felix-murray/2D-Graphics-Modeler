@@ -1,8 +1,3 @@
-/*!
- * \file rectangle.h
- * \brief Allows a rectangle to be drawn. You can return and/or modify its dimensions.
- */
- 
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
@@ -11,8 +6,11 @@
 #include <QObject>
 #include <QPaintDevice>
 #include <QPainter>
-//#include <QPoint>
 
+//!  Class Rectangle
+/*!
+  Class to construct a Rectangle on screen.
+*/
 class Rectangle : public Shape
 {
 public:
@@ -22,9 +20,19 @@ public:
     */
     ~Rectangle() override {}
     
-    //! Constructor.
+    //! Alternate constructor.
     /*!
-      Constructs a rectangle shape.
+      \param PS an integer
+      \param PW an integer
+      \param PC an integer
+      \param PCS an integer
+      \param PJS an integer
+      \param BC an integer
+      \param BS an integer
+      \param X an integer
+      \param Y an integer
+      \param W an integer
+      \param H an integer
     */
     Rectangle(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int X , int Y, int W, int H);
     
@@ -44,13 +52,13 @@ public:
 	
     //! Function that calculates area and returns it.
     /*!
-      \return width * height
+      \return area
     */
     double area() override;
 	
     //! Function that calculates perimeter and returns it.
     /*!
-      \return 2*(width + height)
+      \return perimeter
     */
     double perimeter() override;
 

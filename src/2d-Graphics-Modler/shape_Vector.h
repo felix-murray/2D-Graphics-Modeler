@@ -3,6 +3,10 @@
 
 #include <iostream>
 
+//!  Class Shape_Vector
+/*!
+  Class to create vector containers (closely following STL vector implementation).
+*/
 template <class T>
 class Shape_Vector
 {
@@ -12,84 +16,123 @@ private:
     int space;              //size + free_space
                             //in other words, max size of array
 public:
-    /*********  CONSTRUCTORS  **********/
-    Shape_Vector();                          //default constructor
-    explicit Shape_Vector(int s);            //alternate constructor
-    Shape_Vector(const Shape_Vector&);             //copy constructor
-    Shape_Vector& operator=(const Shape_Vector&);  //copy assignment
+    //! Default constructor.
+    /*!
+    */
+    Shape_Vector();                          
 
-    Shape_Vector(const Shape_Vector&&);            //move constructor
-    Shape_Vector& operator=(const Shape_Vector&&); //move assignment
+    //! Alternate constructor.
+    /*!
+      \param s an integer, representing size
+    */
+    explicit Shape_Vector(int s);     
 
-    ~Shape_Vector();                         //destructor
+    //! Copy constructor.
+    /*!
+      \param  obj constant reference to other vector object
+    */       
+    Shape_Vector(const Shape_Vector&);             
 
-    /*********  ACCESS  **********/
-    //Overloads the [] operator to allow indexing on the Shape_Vector.
-    //post-condition: return elem[n];
+    //! Copy Assignment Operator Overload.
+    /*!
+      \param  obj constant reference to other vector object
+    */
+    Shape_Vector& operator=(const Shape_Vector&);  
+
+    //! Move constructor.
+    /*!
+      \param  obj double constant reference to other vector object
+    */   
+    Shape_Vector(const Shape_Vector&&);            
+
+    //! Move Assignment Operator Overload.
+    /*!
+      \param  obj double constant reference to other vector object
+    */
+    Shape_Vector& operator=(const Shape_Vector&&);
+
+    //! Destructor.
+    /*!
+    */
+    ~Shape_Vector();                        
+
+    //! Operator overload to allow indexing of a Shape_Vector object
+    /*!
+      \param n integer representing element
+    */
     T& operator[] (int n);
-//      const T& operator[] (int n);
 
-    /*********  Shape_Vector FUNCTION  **********/
-
-    //Returns the number of elements that are currently in the list.
-    //post-condition: return size_v;
+    //! Function to return the number of elements that are currently in the list.
+    /*!
+      \return size_v 
+    */
     int size() const;
 
-    //Returns the max number of elements that a can go into the Shape_Vector.
-    //post-condition: return space;
+    //! Function to return the max number of elements that a can go into the Shape_Vector.
+    /*!
+      \return space 
+    */
     int capacity() const;
 
-    //Changes the max number of elements in the Shape_Vector.
-    //post-condition: space = newSize;
+    //! Function to change the max number of elements in the Shape_Vector.
+    /*!
+      \param newSize integer representing new size 
+    */
     void resize(int newSize);
 
-    //Inserts an element at the end of the Shape_Vector.
-    //post-condtion: val element is inserted at the end of
-    //               Shape_Vector list.
+    //! Function to insert an element at the end of the Shape_Vector.
+    /*!
+      \param val value to be added
+    */
     void push_back(T val);
 
-    //Requests that the Shape_Vector has enough space to contain n(newAlloc) number of elements.
-    //post-condition: if newAlloc > space, then space = newAlloc.
-    //                in other cases, the function will have no affect on the Shape_Vector.
+    //! Function to request that the Shape_Vector has enough space to contain n(newAlloc) number of elements.
+    /*!
+      \param newalloc new value to allocate
+    */
     void reserve(int newAlloc);
 
     //FILL IN COMMENT HERE
     void set(int index, const T& stuff);
 
-    /*********  ITERATOR  **********/
     using iterator = T*;
     using const_iterator = const T*;
 
-    //returns an iterator that points to the beginning of the Shape_Vector.
-    //pre-condition: The Shape_Vector must exist.
-    //post-condition: return elem;
+    //! Function to return an iterator that points to the beginning of the Shape_Vector.
+    /*!
+      \return elem
+    */
     iterator begin();
-
-    //returns an iterator that points to the beginning of the Shape_Vector.
-    //pre-condition: The Shape_Vector must exist.
-    //post-condition: return elem;
+    
+    //! Function to return a constant iterator that points to the beginning of the Shape_Vector.
+    /*!
+      \return elem
+    */
     const_iterator begin() const;
 
-    //returns an iterator that points to the end of the Shape_Vector.
-    //pre-condition: The Shape_Vector must exist and must have at least one element.
-    //post-condition: return elem + space;
+    //! Function to return an iterator that points to the end of the Shape_Vector.
+    /*!
+      \return elem + space
+    */
     iterator end();
 
-    //returns an iterator that points to the end of the Shape_Vector.
-    //pre-condition: The Shape_Vector must exist and must have at least one element.
-    //post-condition: return elem + space;
+    //! Function to return an iterator that points to the end of the Shape_Vector.
+    /*!
+      \return elem + space
+    */
     const_iterator end() const;
 
-    //Inserts the element v before an element at the specified location in the Shape_Vector.
-    //post-condition: if(size_v + 1 > space), then the function will not add an element.
-    //                Otherwise, size_v gets incremented by 1 and the new element will
-    //                get inserted at the location before the location specified by iterator p.
+    //! Function to insert the element v before an element at the specified location in the Shape_Vector.
+    /*!
+      \param p iterator to traverse list
+      \param v constant reference value to be inserted
+    */
     iterator insert(iterator p, const T& v);
 
-    //deletes an element from the list.
-    //post-condition: if(size_v == 0), then the function will not do anything.
-    //                Otherwise, size_v get decremented by 1 and the element
-    //                specified by iterator p will get deleted.
+    //! Function to delete an element from the list
+    /*!
+      \param p iterator to traverse list
+    */
     iterator erase(iterator p);
 };
 
