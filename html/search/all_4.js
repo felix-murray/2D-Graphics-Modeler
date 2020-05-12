@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['getbrush_6',['getBrush',['../class_shape.html#ad1f6a83ca898073ae6237cd9560a5666',1,'Shape']]],
-  ['getheight_7',['getHeight',['../class_rectangle.html#a78c23ebff32769d54b568536d76af7f8',1,'Rectangle']]],
-  ['getid_8',['getID',['../class_shape.html#ab01fdb3c77e8dafc6febdeb5b7664430',1,'Shape']]],
-  ['getlocation_9',['getLocation',['../class_rectangle.html#a3b624ce7e9708664d8ab322c265a5465',1,'Rectangle']]],
-  ['getpen_10',['getPen',['../class_shape.html#a02fd70d52259c315a71b102d0c76f25d',1,'Shape']]],
-  ['getqpainter_11',['getQPainter',['../class_shape.html#ac83754d9a36ce0b6dd8badc7af4ca4b7',1,'Shape']]],
-  ['getshape_12',['getShape',['../class_shape.html#ab33fe28f566590705d221782b421ef7f',1,'Shape']]],
-  ['getwidth_13',['getWidth',['../class_rectangle.html#a9911b718370d9f9c987c1c5f85379b09',1,'Rectangle']]]
+  ['ellipse_11',['Ellipse',['../class_ellipse.html',1,'Ellipse'],['../class_ellipse.html#af31f4f441414671f76c60b03516eb5d6',1,'Ellipse::Ellipse(QPaintDevice *device=nullptr, int id=-1)'],['../class_ellipse.html#a6bcaa10a1ed2d6d548b09dc385700c3e',1,'Ellipse::Ellipse(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int X, int Y, int W, int H)']]],
+  ['ellipseobj_12',['EllipseObj',['../class_shape.html#a274ee77c6a7bcab2f0d2666e128d2ad0a0a77c3fe4145b356895d2d6077b7a0f6',1,'Shape']]],
+  ['end_13',['end',['../class_shape___vector.html#a6780b7fce38030758847ee8922a500f9',1,'Shape_Vector::end()'],['../class_shape___vector.html#a6683e9f638b441659bc53fca416f5643',1,'Shape_Vector::end() const']]],
+  ['erase_14',['erase',['../class_shape___vector.html#a911845cdfa4041d1488d6261dfa13631',1,'Shape_Vector']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rectangle_60',['Rectangle',['../class_rectangle.html',1,'']]],
-  ['renderarea_61',['RenderArea',['../class_render_area.html',1,'']]]
+  ['polygon_96',['Polygon',['../class_polygon.html',1,'']]],
+  ['polyline_97',['Polyline',['../class_polyline.html',1,'']]]
 ];

@@ -8,6 +8,10 @@
 
 using namespace Qt;
 
+//!  Class Shape
+/*!
+  Base class to create a basic Shape.
+*/
 class Shape : public QPainter
 {
 public:

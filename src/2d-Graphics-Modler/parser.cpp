@@ -5,17 +5,10 @@ Shape_Parser::Shape_Parser()
 {
 
 }
-Shape_Parser::~Shape_Parser(){
+Shape_Parser::~Shape_Parser()
+{
 
 }
-/*!
- * \brief Gathers the collected data from parseInput() and adds the shape to the canvas
- *
- * translate() function is called by parseInput() to form the current holding data
- * members into a new shape, distinguishing the type of shape by ShapeType.
- * Then it will add the shape to the canvas and update the canvas.
- * \param canvas
- */
 
 void Shape_Parser::translate(RenderArea &canvas)
 {
@@ -31,7 +24,7 @@ void Shape_Parser::translate(RenderArea &canvas)
         qDebug() << "Parsed Line\n";
     }
 
-    else if(ShapeType == "Polyline")////////////////////////////////////////////////////////////////////////////
+    else if(ShapeType == "Polyline")
     {
         int numPts = dimensions_count/2;
         QPoint *PV = new QPoint[numPts];
@@ -49,7 +42,7 @@ void Shape_Parser::translate(RenderArea &canvas)
         qDebug() << "Parsed Polyline\n";
     }
 
-    else if(ShapeType == "Polygon")////////////////////////////////////////////////////////////////////////////////
+    else if(ShapeType == "Polygon")
     {
 
         qDebug() << "Parsed Polygon\n";
@@ -71,7 +64,7 @@ void Shape_Parser::translate(RenderArea &canvas)
 
         qDebug() << "Parsed Square\n";
     }
-    else if(ShapeType == "Ellipse")////////////////////////////////
+    else if(ShapeType == "Ellipse")
     {
         shape = new Ellipse(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle,
                             BrushColor, BrushStyle, dimensions[0] , dimensions[1], dimensions[2], dimensions[3]);
@@ -79,7 +72,7 @@ void Shape_Parser::translate(RenderArea &canvas)
 
         qDebug() << "Parsed Ellipse\n";
     }
-    else if(ShapeType == "Circle")////////////////////////////////
+    else if(ShapeType == "Circle")
     {
         shape = new Ellipse(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle,
                             BrushColor, BrushStyle, dimensions[0] , dimensions[1], dimensions[2], dimensions[3]);
@@ -99,20 +92,6 @@ void Shape_Parser::translate(RenderArea &canvas)
     canvas.update();
 }
 
-/*!
- * \brief Read in input from a file and parse it into renderable shapes
- *
- * This function reads a file and based on the specific "shapes.txt" file
- * and it's specific structure. Using QFile and QTextStream, parseInput()
- * traverses through the file in a line by line fashion, extracts the data
- * and set the private data members of the Shape_Parser class. When a single
- * shape is read (indicated by the QTextStream reading in a blank line ("")),
- * it will call the translate() function which creates a new shape based
- * on the current Shape_Parser class data members and add the new shape.
- * After translate() has executed, the loop will repeat this process until
- * the end of file is reached.
- * \param canvas
- */
 void Shape_Parser::parseInput(RenderArea &canvas)
 {
     qDebug() << "Within Parser\n";
@@ -362,7 +341,7 @@ void Shape_Parser::parseInput(RenderArea &canvas)
             {
                 line = line.mid(15);
 
-                if(line == "SquareCap")////////////////////////////Same as PenCapStyle??/////////////////
+                if(line == "SquareCap")
                     temp = 0;
                 else if (line == "FlatCap")
                     temp = 1;
@@ -378,7 +357,7 @@ void Shape_Parser::parseInput(RenderArea &canvas)
             {
                 line = line.mid(16);
 
-                if(line == "Normal")//////////////////////////////////////////////////////////
+                if(line == "Normal")
                     temp = 0;
                 else
                     temp = 0;

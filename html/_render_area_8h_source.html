@@ -77,7 +77,7 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QFile&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QTextStream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8h.html">shape.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;shape.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;shape_Vector.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QPaintEvent&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
@@ -99,7 +99,7 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> addShape(<a class="code" href="class_shape.html">Shape</a>* shapeIn);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">int</span> getSize();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> getNumShapes();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> getnumShapesRA();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> chopShape(<span class="keywordtype">int</span> indexRemove);<span class="comment">//Shape remove</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> moveShape(<span class="keywordtype">int</span> indexMove, <span class="keywordtype">int</span> coordMove, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y); <span class="comment">//Move shape</span></div>
@@ -109,7 +109,7 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;   <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">const</span> QImage renderArea;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_shape___vector.html">Shape_Vector&lt;Shape*&gt;</a> ShapeMagazine;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> numShapes;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> numShapesRA;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> readShapeFile();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
@@ -136,11 +136,10 @@ $(function() {
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif // RenderArea_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="ashape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div><div class="ttdoc">a brief description of a file</div></div>
 <div class="ttc" id="aclass_shape___vector_html"><div class="ttname"><a href="class_shape___vector.html">Shape_Vector&lt; Shape * &gt;</a></div></div>
-<div class="ttc" id="aclass_shape_html_a274ee77c6a7bcab2f0d2666e128d2ad0"><div class="ttname"><a href="class_shape.html#a274ee77c6a7bcab2f0d2666e128d2ad0">Shape::Shapes</a></div><div class="ttdeci">Shapes</div><div class="ttdef"><b>Definition:</b> shape.h:27</div></div>
+<div class="ttc" id="aclass_shape_html_a274ee77c6a7bcab2f0d2666e128d2ad0"><div class="ttname"><a href="class_shape.html#a274ee77c6a7bcab2f0d2666e128d2ad0">Shape::Shapes</a></div><div class="ttdeci">Shapes</div><div class="ttdef"><b>Definition:</b> shape.h:20</div></div>
 <div class="ttc" id="aclass_render_area_html"><div class="ttname"><a href="class_render_area.html">RenderArea</a></div><div class="ttdef"><b>Definition:</b> RenderArea.h:17</div></div>
-<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.h:23</div></div>
+<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdoc">Class Shape.</div><div class="ttdef"><b>Definition:</b> shape.h:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
