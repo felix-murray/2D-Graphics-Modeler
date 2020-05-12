@@ -5,46 +5,85 @@ Shape_Parser::Shape_Parser()
 {
 
 }
-Shape_Parser::~Shape_Parser()
-{
+Shape_Parser::~Shape_Parser(){
 
 }
-void Shape_Parser::translate(RenderArea *canvas)
+/*!
+ * \brief Gathers the collected data from parseInput() and adds the shape to the canvas
+ *
+ * translate() function is called by parseInput() to form the current holding data
+ * members into a new shape, distinguishing the type of shape by ShapeType.
+ * Then it will add the shape to the canvas and update the canvas.
+ * \param canvas
+ */
+
+void Shape_Parser::translate(RenderArea &canvas)
 {
     qDebug() << "Within Translate\n";
 
     //Use the shape constructors to build shape given parameters (remember to convert to int first!)
     Shape *shape;
-    if(ShapeType == "Line"){
-
+    if(ShapeType == "Line")
+    {
         shape = new Line(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle, -1, -1, QPoint(dimensions[0], dimensions[1]), QPoint(dimensions[2], dimensions[3]));
-        canvas->addShape(shape);
+        canvas.addShape(shape);
 
         qDebug() << "Parsed Line\n";
     }
+
     else if(ShapeType == "Polyline")////////////////////////////////////////////////////////////////////////////
     {
+        int numPts = dimensions_count/2;
+        QPoint *PV = new QPoint[numPts];
+        QPoint *temp;
 
+        int counterPV = 0;
+        for(int i = 0; i < dimensions_count; i=i+2)
+        {
+            temp = new QPoint(dimensions[i], dimensions[i+1]);
+            PV[counterPV] = *temp;
+            counterPV++;
+        }
+        shape = new Polyline(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle, -1, -1, numPts, PV);
+        canvas.addShape(shape);
         qDebug() << "Parsed Polyline\n";
     }
+
     else if(ShapeType == "Polygon")////////////////////////////////////////////////////////////////////////////////
     {
 
         qDebug() << "Parsed Polygon\n";
     }
+
     else if(ShapeType == "Rectangle")
     {
         shape = new Rectangle(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle,
                               BrushColor, BrushStyle, dimensions[0] , dimensions[1], dimensions[2], dimensions[3]);
-        canvas->addShape(shape);
+        canvas.addShape(shape);
 
         qDebug() << "Parsed Rectangle\n";
+    }
+    else if(ShapeType == "Square")
+    {
+        shape = new Rectangle(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle,
+                              BrushColor, BrushStyle, dimensions[0] , dimensions[1], dimensions[2], dimensions[3]);
+        canvas.addShape(shape);
+
+        qDebug() << "Parsed Square\n";
     }
     else if(ShapeType == "Ellipse")////////////////////////////////
     {
         shape = new Ellipse(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle,
                             BrushColor, BrushStyle, dimensions[0] , dimensions[1], dimensions[2], dimensions[3]);
-        canvas->addShape(shape);
+        canvas.addShape(shape);
+
+        qDebug() << "Parsed Ellipse\n";
+    }
+    else if(ShapeType == "Circle")////////////////////////////////
+    {
+        shape = new Ellipse(PenStyle, PenWidth, PenColor, PenCapStyle, PenJoinStyle,
+                            BrushColor, BrushStyle, dimensions[0] , dimensions[1], dimensions[2], dimensions[3]);
+        canvas.addShape(shape);
 
         qDebug() << "Parsed Ellipse\n";
     }
@@ -52,568 +91,319 @@ void Shape_Parser::translate(RenderArea *canvas)
     {
         shape = new Text(TextQstring, TextColor, TextFontFamily, TextAlignment,
                          TextFontStyle, TextFontWeight, dimensions[2], dimensions[3], QPoint(dimensions[0], dimensions[1]));
-        canvas->addShape(shape);
+        canvas.addShape(shape);
 
         qDebug() << "Parsed Text\n";
     }
-    canvas->update();
+
+    canvas.update();
 }
 
 /*!
- * \brief Read in input from the file and add the newly created shape
+ * \brief Read in input from a file and parse it into renderable shapes
+ *
+ * This function reads a file and based on the specific "shapes.txt" file
+ * and it's specific structure. Using QFile and QTextStream, parseInput()
+ * traverses through the file in a line by line fashion, extracts the data
+ * and set the private data members of the Shape_Parser class. When a single
+ * shape is read (indicated by the QTextStream reading in a blank line ("")),
+ * it will call the translate() function which creates a new shape based
+ * on the current Shape_Parser class data members and add the new shape.
+ * After translate() has executed, the loop will repeat this process until
+ * the end of file is reached.
  * \param canvas
- * \param ui
  */
-void Shape_Parser::parseInput(RenderArea *canvas)
+void Shape_Parser::parseInput(RenderArea &canvas)
 {
     qDebug() << "Within Parser\n";
-
-    std::string input;
     int temp;
-    int dimensions_count = 0;
+    dimensions_count = 0;
 
-    std::ifstream inputFile;
-    inputFile.open("shapes.txt");
+    QString line;
 
-    //Run through the file and create shapes
-
-    getline(inputFile, input);
-    getline(inputFile, input);
-    qDebug() << "Before Parsing Loop\n";
-
-    while(!inputFile.eof())
-    //while(getline(inputFile, input))
+    QFile inputFile(ShapeFileName);
+    if (!inputFile.open(QIODevice::ReadOnly | QIODevice::Text))
+        qDebug() << "Could not open the file\n";
+    else
     {
-        // Begin Parsing:
+        qDebug() << "File is opened\n";
 
-        if(input.find("ShapeId:") != std::string::npos)
+        QTextStream file(&inputFile);
+        line = file.readLine(); //Reads in the very first blank line in the file
+        line = file.readLine(); //Reads in the first substantial line of text ("ShapeId: __")
+
+        while(!file.atEnd())
         {
-            //use stoi
-            input = input.substr(9);
-            ShapeId = stoi(input);
+            // Begin Parsing:
+            qDebug() << "Within Parser Loop\n";
 
-        }
-
-        else if(input.find("ShapeType:") != std::string::npos)
-        {
-            //use stoi
-            input = input.substr(11);
-            ShapeType = input;
-
-        }
-
-        else if (input.find("ShapeDimensions:") != std::string::npos)
-        {
-            Dimensions = input.substr(17);
-            std::stringstream ss(Dimensions);
-            std::string temp;
-            while(getline(ss, temp, ','))/////////////////////////////////might be the issue///////////////////////////
+            if(line.startsWith("ShapeId:"))
             {
-                dimensions[dimensions_count] = stoi(temp);
-                dimensions_count++;
+                line = line.mid(9);
+                ShapeId = line.toInt();
+                line = file.readLine();
+            if(line.startsWith("ShapeType:"))
+            {
+                line = line.mid(11);
+                ShapeType = line;
+                line = file.readLine();
+            if (line.startsWith("ShapeDimensions:"))
+            {
+                Dimensions = line.mid(17);
+                QStringList list1 = Dimensions.split(',', QString::SkipEmptyParts);
+                for(QString s: list1)
+                {
+                    dimensions[dimensions_count] = s.toInt();
+                    dimensions_count++;
+                }
+
+                line = file.readLine();
+            }
+            if(line.startsWith("PenColor:"))
+            {
+                line = line.mid(10);
+
+                if(line == "white")
+                    temp = 0;
+                else if (line == "black")
+                    temp = 1;
+                else if (line == "red")
+                    temp = 2;
+                else if (line == "green")
+                    temp = 3;
+                else if (line == "blue")
+                    temp = 4;
+                else if (line == "cyan")
+                    temp = 5;
+                else if (line == "magenta")
+                    temp = 6;
+                else if(line == "yellow")
+                    temp = 7;
+                else if(line == "gray")
+                    temp = 8;
+
+                PenColor = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("PenWidth:"))
+            {
+                line = line.mid(10);
+                PenWidth = line.toInt();
+                line = file.readLine();
+            }
+            if(line.startsWith("PenStyle:"))
+            {
+                line = line.mid(10);
+
+                if(line == "SolidLine")
+                    temp = 0;
+                else if (line == "DashLine")
+                    temp = 1;
+                else if (line == "DotLine")
+                    temp = 2;
+                else if (line == "DashDotLine")
+                    temp = 3;
+                else if (line == "DashDotDotLine")
+                    temp = 4;
+                else if (line == "NoPen")
+                    temp = 5;
+                PenStyle = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("PenCapStyle:"))
+            {
+                line = line.mid(13);
+
+                if(line == "SquareCap")
+                    temp = 0;
+                else if (line == "FlatCap")
+                    temp = 1;
+                else if (line == "RoundCap")
+                    temp = 2;
+                else
+                    temp = 0;
+
+                PenCapStyle = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("PenJoinStyle:"))
+            {
+                line = line.mid(14);
+
+                if(line == "BevelJoin")
+                    temp = 0;
+                else if (line == "MiterJoin")
+                    temp = 1;
+                else if (line == "RoundJoin")
+                    temp = 2;
+                else
+                    temp = 0;
+
+                PenJoinStyle = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("BrushColor:"))
+            {
+                line = line.mid(12);
+
+                if(line == "white")
+                    temp = 0;
+                else if (line == "black")
+                    temp = 1;
+                else if (line == "red")
+                    temp = 2;
+                else if (line == "green")
+                    temp = 3;
+                else if (line == "blue")
+                    temp = 4;
+                else if (line == "cyan")
+                    temp = 5;
+                else if (line == "magenta")
+                    temp = 6;
+                else if(line == "yellow")
+                    temp = 7;
+                else if(line == "gray")
+                    temp = 8;
+
+                BrushColor = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("BrushStyle:"))
+            {
+                line = line.mid(12);
+
+                if(line == "SolidPattern")
+                    temp = 0;
+                else if (line == "HorPattern")
+                    temp = 1;
+                else if (line == "VerPattern")
+                    temp = 2;
+                else if (line == "NoBrush")
+                    temp = 3;
+
+                BrushStyle = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("TextString:"))
+            {
+                line = line.mid(12);
+                TextQstring = line;
+                line = file.readLine();
+            }
+            if(line.startsWith("TextColor:"))
+            {
+                line = line.mid(11);
+
+                if(line == "white")
+                    temp = 0;
+                else if (line == "black")
+                    temp = 1;
+                else if (line == "red")
+                    temp = 2;
+                else if (line == "green")
+                    temp = 3;
+                else if (line == "blue")
+                    temp = 4;
+                else if (line == "cyan")
+                    temp = 5;
+                else if (line == "magenta")
+                    temp = 6;
+                else if(line == "yellow")
+                    temp = 7;
+                else if(line == "gray")
+                    temp = 8;
+
+                TextColor = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("TextAlignment:"))
+            {
+                line = line.mid(15);
+
+                if(line == "AlignLeft")
+                    temp = 0;
+                else if (line == "AlignCenter")
+                    temp = 1;
+                else if (line == "AlignRight")
+                    temp = 2;
+                else if (line == "AlignTop")
+                    temp = 3;
+                else if (line == "AlignBottom")
+                    temp = 4;
+                else if (line == "AlignLeft")
+                    temp = 5;
+
+                TextAlignment = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("TextPointSize:"))
+            {
+                line = line.mid(15);
+                TextPointSize = line.toInt();
+                line = file.readLine();
+            }
+            if(line.startsWith("TextFontFamily:"))
+            {
+                line = line.mid(16);
+
+                if(line == "Comic Sans MS")
+                    temp = 0;
+                else if (line == "Courier")
+                    temp = 1;
+                else if (line == "Helvetica")
+                    temp = 2;
+                else if (line == "Times")
+                    temp = 3;
+
+                TextFontFamily = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("TextFontStyle:"))
+            {
+                line = line.mid(15);
+
+                if(line == "SquareCap")////////////////////////////Same as PenCapStyle??/////////////////
+                    temp = 0;
+                else if (line == "FlatCap")
+                    temp = 1;
+                else if (line == "RoundCap")
+                    temp = 2;
+                else
+                    temp = 0;
+
+                TextFontStyle = temp;
+                line = file.readLine();
+            }
+            if(line.startsWith("TextFontWeight:"))
+            {
+                line = line.mid(16);
+
+                if(line == "Normal")//////////////////////////////////////////////////////////
+                    temp = 0;
+                else
+                    temp = 0;
+
+                TextFontWeight = temp;
+                line = file.readLine();
+            }
+            if(line == "")
+            {
+                translate(canvas);
+                line = file.readLine();
+            }
+            }
+            }
+            for(int i = 0; i < dimensions_count; i++)
+            {
+                dimensions[i] = 0;
             }
             dimensions_count = 0;
         }
-        else if(input.find("PenColor:") != std::string::npos)
-        {
-            input = input.substr(10);
-            //input = "white";
 
-            if(input == "white")
-                temp = 0;
-            else if (input == "black")
-                temp = 1;
-            else if (input == "red")
-                temp = 2;
-            else if (input == "green")
-                temp = 3;
-            else if (input == "blue")
-                temp = 4;
-            else if (input == "cyan")
-                temp = 5;
-            else if (input == "magenta")
-                temp = 6;
-            else if(input == "yellow")
-                temp = 7;
-            else if(input == "gray")
-                temp = 8;
-
-            PenColor = temp;
-        }
-        else if(input.find("PenWidth:") != std::string::npos)
-        {
-            input = input.substr(10);
-            PenWidth = stoi(input);
-        }
-        else if(input.find("PenStyle:") != std::string::npos)
-        {
-            input = input.substr(10);
-
-            if(input == "SolidLine")
-                temp = 0;
-            else if (input == "DashLine")
-                temp = 1;
-            else if (input == "DotLine")
-                temp = 2;
-            else if (input == "DashDotLine")
-                temp = 3;
-            else if (input == "DashDotDotLine")
-                temp = 4;
-            else if (input == "NoPen")
-                temp = 5;
-
-            PenStyle = temp;
-        }
-        else if(input.find("PenCapStyle:") != std::string::npos)
-        {
-            input = input.substr(13);
-
-            if(input == "SquareCap")
-                temp = 0;
-            else if (input == "FlatCap")
-                temp = 1;
-            else if (input == "RoundCap")
-                temp = 2;
-            else
-                temp = 0;
-
-            PenCapStyle = temp;
-        }
-        else if(input.find("PenJoinStyle:") != std::string::npos)
-        {
-            input = input.substr(14);
-
-            if(input == "BevelJoin")
-                temp = 0;
-            else if (input == "MiterJoin")
-                temp = 1;
-            else if (input == "RoundJoin")
-                temp = 2;
-            else
-                temp = 0;
-
-            PenJoinStyle = temp;
-        }
-        else if(input.find("BrushColor:") != std::string::npos)
-        {
-            input = input.substr(12);
-
-            if(input == "white")
-                temp = 0;
-            else if (input == "black")
-                temp = 1;
-            else if (input == "red")
-                temp = 2;
-            else if (input == "green")
-                temp = 3;
-            else if (input == "blue")
-                temp = 4;
-            else if (input == "cyan")
-                temp = 5;
-            else if (input == "magenta")
-                temp = 6;
-            else if(input == "yellow")
-                temp = 7;
-            else if(input == "gray")
-                temp = 8;
-
-            BrushColor = temp;
-        }
-        else if(input.find("BrushStyle:") != std::string::npos)
-        {
-            input = input.substr(12);
-
-            if(input == "SolidPattern")
-                temp = 0;
-            else if (input == "HorPattern")
-                temp = 1;
-            else if (input == "VerPattern")
-                temp = 2;
-            else if (input == "NoBrush")
-                temp = 3;
-
-            BrushStyle = temp;
-        }
-        else if(input.find("TextString:") != std::string::npos)
-        {
-            input = input.substr(12);
-            TextQstring = TextQstring.fromStdString(input);
-        }
-        else if(input.find("TextColor:") != std::string::npos)
-        {
-            input = input.substr(11);
-
-            if(input == "white")
-                temp = 0;
-            else if (input == "black")
-                temp = 1;
-            else if (input == "red")
-                temp = 2;
-            else if (input == "green")
-                temp = 3;
-            else if (input == "blue")
-                temp = 4;
-            else if (input == "cyan")
-                temp = 5;
-            else if (input == "magenta")
-                temp = 6;
-            else if(input == "yellow")
-                temp = 7;
-            else if(input == "gray")
-                temp = 8;
-
-            TextColor = temp;
-        }
-        else if(input.find("TextAlignment:") != std::string::npos)
-        {
-            input = input.substr(15);
-
-            if(input == "AlignLeft")
-                temp = 0;
-            else if (input == "AlignCenter")
-                temp = 1;
-            else if (input == "AlignRight")
-                temp = 2;
-            else if (input == "AlignTop")
-                temp = 3;
-            else if (input == "AlignBottom")
-                temp = 4;
-            else if (input == "AlignLeft")
-                temp = 5;
-
-            TextAlignment = temp;
-        }
-        else if(input.find("TextPointSize:") != std::string::npos)
-        {
-            input = input.substr(15);
-            TextPointSize = stoi(input);
-        }
-        else if(input.find("TextFontFamily:") != std::string::npos)
-        {
-            input = input.substr(16);
-
-            if(input == "Comic Sans MS")
-                temp = 0;
-            else if (input == "Courier")
-                temp = 1;
-            else if (input == "Helvetica")
-                temp = 2;
-            else if (input == "Times")
-                temp = 3;
-
-            TextFontFamily = temp;
-        }
-        else if(input.find("TextFontStyle:") != std::string::npos)
-        {
-            input = input.substr(15);
-
-            if(input == "SquareCap")////////////////////////////Same as PenCapStyle??/////////////////
-                temp = 0;
-            else if (input == "FlatCap")
-                temp = 1;
-            else if (input == "RoundCap")
-                temp = 2;
-            else
-                temp = 0;
-
-            TextFontStyle = temp;
-        }
-        else if(input.find("TextFontWeight:") != std::string::npos)
-        {
-            input = input.substr(16);
-
-            if(input == "Normal")//////////////////////////////////////////////////////////
-                temp = 0;
-            else
-                temp = 0;
-
-            TextFontWeight = temp;
-            translate(canvas);
-        }
-        else if(input == "")
-        {
-
-            translate(canvas);
-            //setDefaults();	// Reset evreything in parse class to defaults to eliminate cross-contamination.
-        }
-    getline(inputFile, input);
     }
-
     inputFile.close();
 }
-
-void Shape_Parser::setDefaults()
+void Shape_Parser::setFileName(QString fileName)
 {
-=======
-//void Shape_Parser::parseInput(RenderArea* canvas)
-//{
-//    inputFile.open("shapes.txt");
-//    std::string input;
-//    int temp;
-//    int dimensions_count = 0;
-
-//    //Run through the file and create shapes
-//    inputFile >> input;
-//    while(inputFile)
-//    {
-//        // Begin Parsing:
-
-//        if(input == "ShapeId:"){
-//            //use stoi
-//            inputFile >> input;
-//            ShapeId = stoi(input);
-//        }else if(input == "ShapeType:"){
-//            inputFile >> input;
-//            ShapeType = input;
-//        }else if (input == "ShapeDimensions:"){
-//            Dimensions = input;
-//            bool breakWhile = false;
-//            while(!breakWhile)/////////////////////////////////might be the issue///////////////////////////
-//            {
-//                inputFile >> input;
-//                if(input[input.length()-1] != ',')
-//                    breakWhile = true;
-//                dimensions[dimensions_count] = stoi(input);
-//                dimensions_count++;
-//            }
-//            dimensions_count = 0;
-
-//        }else if(input == "PenColor:"){
-//            inputFile >> input;
-//            //input = "white";
-
-//            if(input == "white")
-//                temp = 0;
-//            else if (input == "black")
-//                temp = 1;
-//            else if (input == "red")
-//                temp = 2;
-//            else if (input == "green")
-//                temp = 3;
-//            else if (input == "blue")
-//                temp = 4;
-//            else if (input == "cyan")
-//                temp = 5;
-//            else if (input == "magenta")
-//                temp = 6;
-//            else if(input == "yellow")
-//                temp = 7;
-//            else if(input == "gray")
-//                temp = 8;
-
-//            PenColor = temp;
-//        }else if(input == "PenWidth:"){
-//            inputFile >> input;
-//            PenWidth = stoi(input);
-//        }else if(input == "PenStyle:"){
-//            inputFile >> input;
-
-//            if(input == "SolidLine")
-//                temp = 0;
-//            else if (input == "DashLine")
-//                temp = 1;
-//            else if (input == "DotLine")
-//                temp = 2;
-//            else if (input == "DashDotLine")
-//                temp = 3;
-//            else if (input == "DashDotDotLine")
-//                temp = 4;
-//            else if (input == "NoPen")
-//                temp = 5;
-
-//            PenStyle = temp;
-//        }else if(input == "PenCapStyle:"){
-//            inputFile >> input;
-
-//            if(input == "SquareCap")
-//                temp = 0;
-//            else if (input == "FlatCap")
-//                temp = 1;
-//            else if (input == "RoundCap")
-//                temp = 2;
-//            else
-//                temp = 0;
-
-//            PenCapStyle = temp;
-//        }else if(input == "PenJoinStyle:"){
-//            inputFile >> input;
-
-//            if(input == "BevelJoin")
-//                temp = 0;
-//            else if (input == "MiterJoin")
-//                temp = 1;
-//            else if (input == "RoundJoin")
-//                temp = 2;
-//            else
-//                temp = 0;
-
-//            PenJoinStyle = temp;
-//        }else if(input == "BrushColor:"){
-//            inputFile >> input;
-
-//            if(input == "white")
-//                temp = 0;
-//            else if (input == "black")
-//                temp = 1;
-//            else if (input == "red")
-//                temp = 2;
-//            else if (input == "green")
-//                temp = 3;
-//            else if (input == "blue")
-//                temp = 4;
-//            else if (input == "cyan")
-//                temp = 5;
-//            else if (input == "magenta")
-//                temp = 6;
-//            else if(input == "yellow")
-//                temp = 7;
-//            else if(input == "gray")
-//                temp = 8;
-
-//            BrushColor = temp;
-//        }else if(input == "BrushStyle:"){
-//            inputFile >> input;
-
-//            if(input == "SolidPattern")
-//                temp = 0;
-//            else if (input == "HorPattern")
-//                temp = 1;
-//            else if (input == "VerPattern")
-//                temp = 2;
-//            else if (input == "NoBrush")
-//                temp = 3;
-
-//            BrushStyle = temp;
-//        }else if(input == "TextString"){
-//            inputFile >> input;
-//            TextQstring = TextQstring.fromStdString(input);
-//        }else if(input == "TextColor:"){
-//            inputFile >> input;
-
-//            if(input == "white")
-//                temp = 0;
-//            else if (input == "black")
-//                temp = 1;
-//            else if (input == "red")
-//                temp = 2;
-//            else if (input == "green")
-//                temp = 3;
-//            else if (input == "blue")
-//                temp = 4;
-//            else if (input == "cyan")
-//                temp = 5;
-//            else if (input == "magenta")
-//                temp = 6;
-//            else if(input == "yellow")
-//                temp = 7;
-//            else if(input == "gray")
-//                temp = 8;
-
-//            TextColor = temp;
-//        }else if(input == "TextAlignment:"){
-//            inputFile >> input;
-
-//            if(input == "AlignLeft")
-//                temp = 0;
-//            else if (input == "AlignCenter")
-//                temp = 1;
-//            else if (input == "AlignRight")
-//                temp = 2;
-//            else if (input == "AlignTop")
-//                temp = 3;
-//            else if (input == "AlignBottom")
-//                temp = 4;
-//            else if (input == "AlignLeft")
-//                temp = 5;
-
-//            TextAlignment = temp;
-//        }else if(input == "TextPointSize:"){
-//            inputFile >> input;
-//            TextPointSize = stoi(input);
-//        }else if(input == "TextFontFamily:"){
-//            inputFile >> input;
-
-//            if(input == "Comic Sans MS")
-//                temp = 0;
-//            else if (input == "Courier")
-//                temp = 1;
-//            else if (input == "Helvetica")
-//                temp = 2;
-//            else if (input == "Times")
-//                temp = 3;
-
-//            TextFontFamily = temp;
-//        }else if(input == "TextFontStyle:"){
-//            inputFile >> input;
-
-//            if(input == "SquareCap")////////////////////////////Same as PenCapStyle??/////////////////
-//                temp = 0;
-//            else if (input == "FlatCap")
-//                temp = 1;
-//            else if (input == "RoundCap")
-//                temp = 2;
-//            else
-//                temp = 0;
-
-//            TextFontStyle = temp;
-//        }else if(input == "TextFontWeight:"){
-//            inputFile >> input;
-
-//            if(input == "Normal")//////////////////////////////////////////////////////////
-//                temp = 0;
-//            else
-//                temp = 0;
-
-//            TextFontWeight = temp;
-//        }else if(input == "\n"){
-//            translate(canvas);
-//            setDefaults();	// Reset evreything in parse class to defaults to eliminate cross-contamination.
-//        }
-
-//    }
-
-//    inputFile.close();
-//}
-void Shape_Parser::setDefaults()
-{
-    for(int i = 0; i < 10; i++)
-    {
-        dimensions[i] = 0;
-    }
-}
-void Shape_Parser::dimToQPoint()
-{
-//    //dimensions = [20, 90, 30, 40];
-//    int index;
-//    if(ShapeType == "Line")
-//    {
-//        QPoint *P1 = new QPoint(dimensions[0], dimensions[1]);
-//        QPoint *P2 = new QPoint(dimensions[2], dimensions[3]);
-//    }
-//    else if(ShapeType == "PolyLine")
-//    {
-//        for(int i = 0; i < 10; i++)
-//        {
-//            QPoint *P1 = new QPoint(dimensions[0], dimensions[1]);
-//            QPoint *P2 = new QPoint(dimensions[2], dimensions[3]);
-//        }
-//    }
-//    else if(ShapeType == "PolyLine")
-//    {
-//        for(int i = 0; i < 10; i++)
-//        {
-//            QPoint *P1 = new QPoint(dimensions[0], dimensions[1]);
-//            QPoint *P2 = new QPoint(dimensions[2], dimensions[3]);
-//        }
-//    }
-//    else if(ShapeType == "PolyLine")
-//    {
-//        for(int i = 0; i < 10; i++)
-//        {
-//            QPoint *P1 = new QPoint(dimensions[0], dimensions[1]);
-//            QPoint *P2 = new QPoint(dimensions[2], dimensions[3]);
-//        }
-//    }
-//    //Dimensions = "900, 90, 910, 20, 970, 40, 980, 80"
-
+    ShapeFileName = fileName;
 }

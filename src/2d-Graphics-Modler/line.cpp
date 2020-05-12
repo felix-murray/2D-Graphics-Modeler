@@ -26,6 +26,7 @@ void Line::draw(QPaintDevice *device)
     painter.setPen(getPen());
     painter.setBrush(getBrush());
     painter.drawLine(line_begin, line_end);
+    painter.drawText(line_begin,QString::number(getID()));
     painter.end();
 }
 

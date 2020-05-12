@@ -27,7 +27,7 @@ class RenderArea : public QWidget
         void addShape(Shape* shapeIn);
 
         int getSize();
-        int getNumShapes();
+        int getnumShapesRA();
 
         void chopShape(int indexRemove);//Shape remove
         void moveShape(int indexMove, int coordMove, int x, int y); //Move shape
@@ -37,7 +37,7 @@ class RenderArea : public QWidget
    private:
         const QImage renderArea;
         Shape_Vector<Shape*> ShapeMagazine;
-        int numShapes;
+        int numShapesRA;
 
         void readShapeFile();
 

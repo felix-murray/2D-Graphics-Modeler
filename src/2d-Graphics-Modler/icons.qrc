@@ -12,5 +12,6 @@
         <file>icone_polygon.png</file>
         <file>windows.png</file>
         <file>UnicornBarfing.png</file>
+        <file>moveButtonIcon.png</file>
     </qresource>
 </RCC>

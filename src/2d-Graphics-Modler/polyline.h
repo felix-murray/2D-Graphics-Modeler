@@ -24,11 +24,11 @@ public:
     double perimeter() override {return 0;}
     double area() override {return 0;}
 
-    Shape_Vector<QPoint>& getPoints() {return pts;}
+    //Shape_Vector<QPoint>& getPoints() {return pts;}
     int getNumPoints() {return numPts;}
 
 private:
-    Shape_Vector<QPoint> pts;
+    //Shape_Vector<QPoint> pts;
     int numPts;
     QPoint pointsAr[DEFAULT_NUM_PTS];
 };

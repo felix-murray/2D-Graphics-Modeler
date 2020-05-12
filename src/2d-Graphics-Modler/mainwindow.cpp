@@ -178,8 +178,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->plinepenjoin_style_box->addItem("RoundJoin");
 
     qDebug() << "Before Parser" << endl;
-//    parser = new Shape_Parser;
-//    parser->parseInput(*(ui->Canvas));
+    parser = new Shape_Parser;
+    parser->setFileName(":/shapes.txt");
+    parser->parseInput(*(ui->Canvas));
 }
 
 MainWindow::~MainWindow()
@@ -320,39 +321,38 @@ void MainWindow::on_pline_build_button_clicked()
 
     int NP = ui->plinepen_numpts_box->text().toInt();
 
-    QPoint PV[NP];
-
+    QPoint *PV = new QPoint[NP];
+    QPoint *temp;
     for(int i = 0; i < NP; i++)
     {
         if(i == 0)
         {
-            QPoint p1(ui->pline_x1->text().toInt(), ui->pline_y1->text().toInt());
-            PV[i] =p1;
+            temp = new QPoint(ui->pline_x1->text().toInt(), ui->pline_y1->text().toInt());
+            PV[i] =*temp;
         }
         if(i == 1)
         {
-            QPoint p2(ui->pline_x2->text().toInt(), ui->pline_y2->text().toInt());
-            PV[i] = p2;
+            temp = new QPoint(ui->pline_x2->text().toInt(), ui->pline_y2->text().toInt());
+            PV[i] = *temp;
         }
         if(i == 2)
         {
-            QPoint p3(ui->pline_x3->text().toInt(), ui->pline_y3->text().toInt());
-            PV[i] = p3;
+            temp = new QPoint(ui->pline_x3->text().toInt(), ui->pline_y3->text().toInt());
+            PV[i] = *temp;
         }
         if(i == 3)
         {
-            QPoint p4(ui->pline_x4->text().toInt(), ui->pline_y4->text().toInt());
-            PV[i] = p4;
+            temp = new QPoint(ui->pline_x4->text().toInt(), ui->pline_y4->text().toInt());
+            PV[i] = *temp;
         }
         if(i == 4)
         {
-            QPoint p5(ui->pline_x5->text().toInt(), ui->pline_y5->text().toInt());
-            PV[i] = p5;
+            temp = new QPoint(ui->pline_x5->text().toInt(), ui->pline_y5->text().toInt());
+            PV[i] = *temp;
         }
     }
 
     Shape *polyline = new Polyline(PS, PW, PC, PCS, PJS, -1, -1, NP, PV);
-
 
     ui->Canvas->addShape(polyline);
 
@@ -420,4 +420,35 @@ void MainWindow::on_cm_button_clicked()
     customertest CMT;
     CMT.setModal(true);
     CMT.exec();
+}
+
+void MainWindow::on_erase_button_clicked()
+{
+    ui->menustack->addWidget(ui->erase_page);
+    ui->menustack->setCurrentWidget(ui->erase_page);
+}
+
+void MainWindow::on_eraseConfirm_clicked()
+{
+    int shapeID = ui->erase_id->text().toInt();
+
+    ui->Canvas->chopShape(shapeID);
+
+    ui->Canvas->update();
+}
+
+void MainWindow::on_move_button_clicked()
+{
+    ui->menustack->addWidget(ui->move_page);
+    ui->menustack->setCurrentWidget(ui->move_page);
+}
+
+void MainWindow::on_moveConfirm_clicked()
+{
+    int shapeID = ui->move_id->text().toInt();
+    int x = ui->move_x->text().toInt();
+    int y = ui->move_y->text().toInt();
+    ui->Canvas->moveShape(shapeID, 0, x, y);
+
+    ui->Canvas->update();
 }

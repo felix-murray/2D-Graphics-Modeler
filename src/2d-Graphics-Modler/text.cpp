@@ -72,6 +72,7 @@ void Text::draw(QPaintDevice *dev)
     painter.setFont(font);
     painter.setPen(getPen());
     painter.drawText(location.x(), location.y(), boxWidth, boxHeight, flag, text);
+    painter.drawText(location,QString::number(getID()));
     painter.end();
 }
 

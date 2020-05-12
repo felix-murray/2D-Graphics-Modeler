@@ -152,7 +152,7 @@ public:
     Shapes shape;              /*!< enum used to identify type of shape. */
 
  private:
-    static int numShapes;
+     static int numShapes;
      int id;        /*!< ID for the shape, used in comparison operations. */
      QPen pen;      /*!< Pen used in drawing of Shapes. */
      QBrush brush;  /*!< Brush used in drawing of Shapes. */
