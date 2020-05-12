@@ -24,6 +24,8 @@ Breighton Kole
 
 Lina Kang
 	- Text Shape
+	- Parser
+	- Deleting of Shapes
 	- Doxygen (code documentation)
 
 Hyojun Lee
