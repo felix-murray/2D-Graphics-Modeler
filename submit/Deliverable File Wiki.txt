@@ -1,20 +1,20 @@
 #1 Customer Testimonials
-	In Progress, will be a part of MainWindowUI when completed (line numbers to be provided on Tuesday)
+	Completed, see customertest.cpp 
 
 #2 Contact Us
-	In Progress, logo complete but Contact Button still needs to be added to MainWindowUI (line numbers to be provided on Tuesday)
+	Completed, see contact_us.cpp
 
 #3 Display Graphic Objects
-	In Progress, displaying of shapes almost complete. (line numbers to be provided on Tuesday)
+	Completed, see MainWindow.cpp for UI elements or any of the shape files for draw functionality.
 
 #4 Shape Parser
-	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
+	Completed, see parser.cpp, parser.h
 
 #5 Ability to Move Shapes
-	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
+	Completed, see move function in each shape class.
 
 #6 Ability to Add and Remove Shapes
-	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
+	Completed, see destructors.
 
 #7 (Cancelled)
 
@@ -23,4 +23,4 @@
 #9 (Cancelled)
 
 #10 Save all changes between executions 
-	In Progress, to be ready by Tuesday (line numbers to be provided on Tuesday)
+	Completed.
