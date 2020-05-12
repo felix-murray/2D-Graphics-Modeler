@@ -6,6 +6,7 @@ RenderArea::RenderArea(QWidget *parent)
     setBackgroundRole(QPalette::Base);
     setAutoFillBackground(true);
     setFixedSize(sizeHint());
+    numShapesRA = 0;
     //readShapeFile();
 }
 
@@ -24,10 +25,20 @@ const Shape_Vector<Shape *> & RenderArea::getShapes()
 void RenderArea::addShape(Shape* shapeIn)
 {
     ShapeMagazine.push_back(shapeIn);
-    numShapes++;
+    numShapesRA++;
     //shapeIn->draw(this);
 }
-
+void RenderArea::chopShape(int indexRemove)
+{
+    Shape_Vector<Shape*>::iterator i;
+    for(i = ShapeMagazine.begin(); i < ShapeMagazine.end(); ++i)
+        if((*i)->getID() == indexRemove)
+        {
+            ShapeMagazine.erase(i);
+            numShapesRA--;
+            break;
+        }
+}
 void RenderArea::moveShape(int index, int coord, int x, int y)
 {
     for(int i = 0; i < ShapeMagazine.size(); i++)
@@ -49,9 +60,9 @@ QSize RenderArea::minimumSizeHint() const
     return QSize(1000,500);
 }
 
-int RenderArea::getNumShapes()
+int RenderArea::getnumShapesRA()
 {
-    return numShapes;
+    return numShapesRA;
 }
 
 Shape::Shapes RenderArea::getShapeType(QString shapeStr)

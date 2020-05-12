@@ -5,7 +5,10 @@ Rectangle::Rectangle(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, i
           :Shape(PS, PW, PC, PCS, PJS, BC, BS)
 {
     width = W;
-    height = H;
+    if(H == 0)
+        height = W;
+    else
+        height = H;
     location.setX(X);
     location.setY(Y);
 }

@@ -234,7 +234,7 @@ void Shape_Vector<T>::resize(int newSize)
 template <class T>
 void Shape_Vector<T>::push_back(T val)
 {
-    if(size_v + 1 <= space)         //checks to see if adding an element will cause an overflow.
+    if(size_v + 1 < space)         //checks to see if adding an element will cause an overflow.
     {
         elem[size_v] = val;         //adds element and increments size_v by 1
         size_v++;
@@ -338,7 +338,7 @@ template <class T>
 typename Shape_Vector<T>::iterator Shape_Vector<T>::erase(iterator p)
 {
     T tempVariable;
-    int difference = &elem[space - 1] - p;
+    int difference = &elem[size_v - 1] - p;
 
     *p = 0;
     for(int loop = 0; loop < difference; loop++) //shifts all elements on the right side of the deletion point

@@ -10,7 +10,10 @@ Ellipse::Ellipse(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS, int X
     location.setX(X);
     location.setY(Y);
     width = W;
-    height = H;
+    if(H == 0)
+        height = W;
+    else
+        height = H;
 }
 
 

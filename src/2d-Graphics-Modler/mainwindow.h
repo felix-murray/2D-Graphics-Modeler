@@ -75,6 +75,14 @@ private slots:
     void on_contact_us_button_clicked();
     void on_login_button_clicked();
     void on_cm_button_clicked();
+    void on_erase_button_clicked();
+
+    void on_eraseConfirm_clicked();
+
+    void on_move_button_clicked();
+
+    void on_moveConfirm_clicked();
+
 private:
     Ui::MainWindow *ui;
 

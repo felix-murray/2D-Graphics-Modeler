@@ -24,21 +24,19 @@ class Shape_Parser
 public:
     Shape_Parser();
     ~Shape_Parser();
-    void translate(RenderArea *);
+    void translate(RenderArea &);
+    void parseInput(RenderArea &canvas);
+    void setFileName(QString fileName);
 
-    void parseInput(RenderArea *);
-
-protected:
-    const char DIVIDER = ' ';
 
 private:
-    int dimensions[10]; //////////////////////////can this be a vector of ints?//////
-    std::string ShapeFileName;
+    int dimensions[10];
+    int dimensions_count;
 
+    QString ShapeFileName;
     int ShapeId;
-
-    std::string Dimensions;
-    std::string ShapeType;
+    QString Dimensions;
+    QString ShapeType;
     int PenColor;
     int PenWidth;
     int PenStyle;
@@ -53,11 +51,6 @@ private:
     int TextFontFamily;
     int TextFontStyle;
     int TextFontWeight;
-
-    void setDefaults();
-    //void Shape_Parser();
-    void saveInput(Shape_Vector<Shape*> &parsedInput);
-    void dimToQPoint();
 };
 
 #endif // Shape_Parser
