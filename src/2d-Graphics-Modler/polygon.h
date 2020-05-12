@@ -8,74 +8,77 @@
 #include <QPainter>
 
 const int DEFAULT_NUM_VERTS = 8;
+
+//!  Class Polygon
+/*!
+  Class to construct a Polygon on screen.
+*/
 class Polygon : public Shape
 {
 public:
 
-    //Donstructor of the polygon class
-    //Parameters: QPaintDevice* dev = nullptr
-    //            int id = -1
-    //Postcondition: Shape(device, id, Shape::shape) 
-    //               vertVect(DEFAULT_NUM_VERTS)
-    //               setShape(PolygonObj);
-    //               numVerts = 0;
+    //! Default constructor.
+    /*!
+      \param device pointer to a QPaintDevice
+      \param id id of the shape object
+    */
     Polygon(QPaintDevice* dev = nullptr, int id = -1);
     
-    //Destructor of the polygon class
-    //Perameters: N/A
-    //Postcondition: N/A
+    //! Destructor.
+    /*!
+    */
     ~Polygon() override {}
 
-    //Function that draws the polygon shape
-    //Perameters: QPaintDevice *dev
-    //Postcondition: painter.begin(device);
-    //               painter.setPen(getPen());
-    //               painter.setBrush(getBrush());
-    //               painter.drawConvexPolygon(vertsArray, numVerts);
-    //               painter.drawText(vertsArray[0] ,QString::number(getID()));
-    //               painter.end();
+    //! Pure Virtual function to draws a Polygon Object.
+    /*!
+      \param dev pointer to a QPaintDevice
+    */
     virtual void draw(QPaintDevice *dev) override;
 
-    //Function that moves a specific vertex to a different
-    //x and y coordinate.
-    //Perameters: int x : the new X-coordinate for the vertex
-    //            int y : the new Y-coordinate for the vextex
-    //            int vertex : the new 
-    //Postcondition: vertVect.set(vertex - 1, temp);
-    //               vertsArray[vertex - 1] = temp;
+     //! Function to move a Polygon vertext to a different coordinate.
+    /*!
+      \param x a integer
+      \param y a integer
+      \param vertext an integer
+      \return New location
+    */
     virtual void move(int x, int y, int vertex) override;
     
-    //Function that calculates the area of the polygon.
-    //Perameters: N/A
-    //Postcondition: return area;
+    //! Function to calculate the area of a Line Object.
+    /*!
+      \return area
+    */
     virtual double area() override;
 
-    //Function that calculates the perimeter of the polygon.
-    //Perameters: N/A
-    //Postcondition: return perimeter;
+    //! Function to calculate the perimeter of a Line Object.
+    /*!
+      \return perimeter
+    */
     virtual double perimeter() override;
 
-    //Function that sets the number of vertices that the
-    //polygon has.
-    //Perameters: int numVertices : the new number of vertices in the polygon.
-    //Postcondition: numVerts = numVertices
+    //! Mutator function to set the number of vertices of a Polygon Object.
+    /*!
+      \param numVertices integer for number of verticies 
+    */
     void setNumVertices(int numVertices);
 
-    //Function that returns the number of vertices to the user.
-    //Perameters: N/A
-    //Postcondtion: return numVerts;
+    //! Accessor function to get the number of vertices of a Polygon Object.
+    /*!
+      \return numVerts
+    */
     int getNumVertices()const;
 
-    //Function that adds a vertex to the polygon.
-    //Perameters: const QPoint& vertex : the new vertex to be added to polygon
-    //Postcondition: vertVect.push_back(vertex);
-    //               vertsArray[numVerts] = vertex;
-    //               numVerts++;
+    //! Function that adds a vertex to the polygon.
+    /*!
+      \param vertect constant reference to a QPoint
+      \return vertVect
+    */
     void addVertex(const QPoint& vertex);
 
-    //Function that returns the polygon vector that contains the vertices
-    //Parameters: N/A
-    //Postcondtion: return vertVect;
+     //! Accessor function that returns the Polygon vector that contains the vertices.
+    /*!
+      \return vertVect
+    */
     Shape_Vector<QPoint>& getVertices();
 
 private:

@@ -1,14 +1,3 @@
-/*!
- * \file shape.h
- * \brief a brief description of a file
- */
-
-//! My actual function doesn't really look like this
-/*!
- *  Some sample detail which isn't exactly the same as the main
- *  function but the structure is the same
- */
-
 #ifndef SHAPE_H_
 #define SHAPE_H_
 
@@ -37,22 +26,34 @@ public:
       Constructs a default shape
     */
     Shape();
-    Shape(int TC);
-    Shape(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS);
-    //Mutator Functions
 
-    /**
-     * Return a copy of the specified standard vector in descending
-     * order.  The order of duplicated items is not defined.  Infinite
-     * values come before or after all other elements depending on sign.
-     *
-     * @tparam T type of elements contained in vector
-     * @param[in] xs vector to order
-     * @return copy of vector in descending order
-     * @throw std::domain_error if any of the values are NaN
-     */
+    //! Alternate constructor.
+    /*!
+      \param TC an integer
+    */
+    Shape(int TC);
+
+     //! Alternate constructor.
+    /*!
+      \param PS an integer
+      \param PW an integer
+      \param PC an integer
+      \param PCS an integer
+      \param PJS an integer
+      \param BC an integer
+      \param BS an integer
+    */
+    Shape(int PS, int PW, int PC, int PCS, int PJS, int BC, int BS);
+
+    //! Mutator function to set type of Shape
+    /*!
+      \param shape enum for shape type
+    */
     void setShape(Shapes shape);
 
+    //! Function to increase the value of shapeID
+    /*!
+    */
     static void incID();
 
     //! Mutator Function to set brush properties.
@@ -82,8 +83,6 @@ public:
 
     void setDefaultStyle();
 
-    //Accessor Functions
-
     //! Accessor Function to get a shape
     /*!
       \return shape
@@ -107,8 +106,6 @@ public:
       \return id
     */
     int getID() const {return id;}
-
-    //Virtual Functions
 
     //! Destructor.
     /*!
@@ -152,7 +149,7 @@ public:
     Shapes shape;              /*!< enum used to identify type of shape. */
 
  private:
-     static int numShapes;
+     static int numShapes;  /*!< Total number of shapes drawn. */
      int id;        /*!< ID for the shape, used in comparison operations. */
      QPen pen;      /*!< Pen used in drawing of Shapes. */
      QBrush brush;  /*!< Brush used in drawing of Shapes. */
