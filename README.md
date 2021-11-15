@@ -1,4 +1,4 @@
-# Saddleback College CS 1C Final Project: 2D Graphics Modeler
+# 2D Graphics Modeler
 
 ## Overview
 Software for modeling basic 2D graphics objects. The modeler will demonstrate the capabilities of the QT graphics engine by using Qt QPainter low-level graphics rendering library to draw shapes on a QWidget rendering area. A ```Shape``` abstract base class which contains a ```QPainter``` data member via an aggregate relationship handles all rendering; ```Shape``` has pure virtual functions , ```move```, ```perimeter``` & ```area```. This program demononstrates usage of inheritance, composition, exception handlers, virtual functions, and overloaded operators in an object-oriented design program.
